@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800;900&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Yuji+Syuku&family=Dela+Gothic+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   神無月 · 双主題システム (Dual Theme System)
+   主題A: 紅 / 墨 / 金  (Vermillion · Sumi · Gold)  — 和風
+   主題B: 蒼 / 白      (Indigo · Snow)              — 青白
+   すべての色を CSS 変数で定義し、data-theme 属性で切替
+   ============================================================ */
+
+/* ===== 主題A: 紅 / 墨 / 金 (既定) ===== */
+:root,
+[data-theme="red"] {
+  /* 墨 — 背景（暗） */
+  --sumi-50: 245 241 234;
+  --sumi-100: 232 223 210;
+  --sumi-200: 201 189 168;
+  --sumi-300: 138 127 109;
+  --sumi-400: 90 79 63;
+  --sumi-500: 47 42 36;
+  --sumi-600: 31 27 23;
+  --sumi-700: 21 18 15;
+  --sumi-800: 13 11 9;
+  --sumi-900: 8 7 6;
+  --sumi-950: 4 3 3;
+
+  /* 和紙 — 文字（明） */
+  --washi-50: 250 246 239;
+  --washi-100: 243 236 217;
+  --washi-200: 230 215 178;
+  --washi-300: 212 187 134;
+
+  /* 紅 — 主アクセント（朱） */
+  --aka-50: 251 234 232;
+  --aka-100: 244 203 199;
+  --aka-200: 230 140 134;
+  --aka-300: 214 79 73;
+  --aka-400: 199 36 34;
+  --aka-500: 176 26 29;
+  --aka-600: 140 18 26;
+  --aka-700: 106 12 20;
+  --aka-800: 72 8 13;
+  --aka-900: 42 5 7;
+
+  /* 金 — 副アクセント */
+  --kin-50: 251 246 229;
+  --kin-100: 246 236 208;
+  --kin-200: 236 217 158;
+  --kin-300: 226 195 109;
+  --kin-400: 216 173 67;
+  --kin-500: 196 151 44;
+  --kin-600: 160 119 32;
+  --kin-700: 124 88 22;
+  --kin-800: 88 60 14;
+  --kin-900: 56 36 8;
+
+  --sumiure-500: 58 42 40;
+  --sumiure-600: 42 29 27;
+  --sumiure-700: 26 18 17;
+
+  /* 複合 — カード・ガラス・印 etc. */
+  --card-bg:
+    radial-gradient(circle at 12% 18%, rgb(var(--kin-400) / 0.04), transparent 45%),
+    radial-gradient(circle at 88% 82%, rgb(var(--aka-400) / 0.05), transparent 50%),
+    linear-gradient(180deg, rgb(var(--sumi-700) / 0.92), rgb(var(--sumi-800) / 0.96));
+  --card-border: rgb(var(--kin-400) / 0.22);
+  --glass-bg: rgb(var(--sumi-800) / 0.62);
+  --glass-border: rgb(var(--kin-400) / 0.18);
+  --stamp-bg: linear-gradient(180deg, rgb(var(--aka-400)), rgb(var(--aka-700)));
+  --stamp-border: rgb(var(--aka-400));
+  --stamp-text: 255 241 223;
+  --kinpaku-grad: linear-gradient(
+    135deg,
+    rgb(var(--kin-100)) 0%,
+    rgb(var(--kin-400)) 28%,
+    rgb(var(--kin-600)) 50%,
+    rgb(var(--kin-200)) 72%,
+    rgb(var(--kin-400)) 100%
+  );
+  --bg-page: radial-gradient(120% 70% at 50% 0%, rgb(var(--sumi-700)) 0%, rgb(var(--sumi-900)) 45%, rgb(var(--sumi-800)) 80%, rgb(var(--sumi-700)) 100%);
+  --glow-a: rgb(var(--aka-500) / 0.35);
+  --glow-b: rgb(var(--kin-400) / 0.22);
+  --glow-c: rgb(var(--aka-400) / 0.28);
+  --moon-grad: radial-gradient(circle at 30% 30%, rgb(var(--kin-100) / 0.45) 0%, rgb(var(--kin-400) / 0.20) 40%, rgb(var(--aka-700) / 0.08) 75%, transparent 100%);
+  --wave-grad-stop0: rgb(var(--kin-400) / 0);
+  --wave-grad-stop55: rgb(var(--aka-500) / 0.5);
+  --wave-grad-stop100: rgb(var(--sumi-900));
+  --wave-stroke: rgb(var(--kin-400) / 0.22);
+  --noise-matrix: "0 0 0 0 0.85  0 0 0 0 0.72  0 0 0 0 0.48  0 0 0 0.6 0";
+  --skeleton-1: rgb(var(--sumi-600) / 0.85);
+  --skeleton-2: rgb(var(--kin-600) / 0.45);
+  --petal-hue: 350 80;
+  --petal-hue2: 358 75;
+  --particle-colors: "#ecd99e,#d8ad43,#d64f49,#c72422,#e68c86,#f3ecd9";
+  --click-colors: "#d8ad43,#ecd99e,#c72422,#d64f49,#e68c86,#f3ecd9";
+  --kiritori-grad: linear-gradient(180deg, transparent, rgb(var(--kin-400) / 0.45) 20%, rgb(var(--aka-400) / 0.55) 50%, rgb(var(--kin-400) / 0.45) 80%, transparent);
+  --seigaiha-a: rgb(var(--kin-400) / 0.22);
+  --seigaiha-b: rgb(var(--aka-400) / 0.18);
+  --corner-border: rgb(var(--kin-400) / 0.55);
+  --corner-shadow: rgb(var(--aka-500) / 0.6);
+  --kanji-stroke: rgb(var(--kin-400) / 0.08);
+  color-scheme: dark;
+}
+
+/* ===== 主題B: 蒼 / 白 (青白) ===== */
+[data-theme="blue"] {
+  /* 墨 — 背景（白系・反転） */
+  --sumi-50: 15 35 70;
+  --sumi-100: 30 55 95;
+  --sumi-200: 45 75 120;
+  --sumi-300: 80 110 160;
+  --sumi-400: 130 160 200;
+  --sumi-500: 190 210 235;
+  --sumi-600: 218 230 245;
+  --sumi-700: 236 242 250;
+  --sumi-800: 248 250 253;
+  --sumi-900: 255 255 255;
+  --sumi-950: 245 250 255;
+
+  /* 和紙 — 文字（濃紺・反転） */
+  --washi-50: 8 20 48;
+  --washi-100: 20 40 75;
+  --washi-200: 35 60 100;
+  --washi-300: 55 85 130;
+
+  /* 紅 → 群青（主アクセント） */
+  --aka-50: 232 240 252;
+  --aka-100: 199 220 248;
+  --aka-200: 134 178 235;
+  --aka-300: 58 141 224;
+  --aka-400: 37 99 235;
+  --aka-500: 29 95 214;
+  --aka-600: 26 80 180;
+  --aka-700: 20 60 140;
+  --aka-800: 13 40 95;
+  --aka-900: 7 20 50;
+
+  /* 金 → 鋼青（副アクセント） */
+  --kin-50: 230 240 252;
+  --kin-100: 208 226 248;
+  --kin-200: 165 200 240;
+  --kin-300: 107 168 232;
+  --kin-400: 74 144 226;
+  --kin-500: 42 114 196;
+  --kin-600: 26 90 160;
+  --kin-700: 16 66 120;
+  --kin-800: 10 42 80;
+  --kin-900: 5 24 50;
+
+  --sumiure-500: 216 228 245;
+  --sumiure-600: 232 240 250;
+  --sumiure-700: 240 246 252;
+
+  /* 複合 */
+  --card-bg:
+    radial-gradient(circle at 12% 18%, rgb(var(--kin-300) / 0.10), transparent 45%),
+    radial-gradient(circle at 88% 82%, rgb(var(--aka-300) / 0.06), transparent 50%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.92), rgb(var(--sumi-800) / 0.96));
+  --card-border: rgb(var(--kin-400) / 0.30);
+  --glass-bg: rgb(var(--sumi-900) / 0.72);
+  --glass-border: rgb(var(--kin-400) / 0.22);
+  --stamp-bg: linear-gradient(180deg, rgb(var(--aka-400)), rgb(var(--aka-700)));
+  --stamp-border: rgb(var(--aka-400));
+  --stamp-text: 255 255 255;
+  --kinpaku-grad: linear-gradient(
+    135deg,
+    rgb(var(--kin-100)) 0%,
+    rgb(var(--kin-400)) 28%,
+    rgb(var(--aka-600)) 50%,
+    rgb(var(--kin-200)) 72%,
+    rgb(var(--kin-300)) 100%
+  );
+  --bg-page: radial-gradient(120% 70% at 50% 0%, rgb(var(--sumi-800)) 0%, rgb(var(--sumi-900)) 45%, rgb(var(--sumi-700)) 80%, rgb(var(--sumi-600)) 100%);
+  --glow-a: rgb(var(--aka-400) / 0.22);
+  --glow-b: rgb(var(--kin-300) / 0.30);
+  --glow-c: rgb(var(--aka-300) / 0.18);
+  --moon-grad: radial-gradient(circle at 30% 30%, rgb(var(--sumi-50) / 0.06) 0%, rgb(var(--kin-400) / 0.12) 40%, rgb(var(--aka-300) / 0.06) 75%, transparent 100%);
+  --wave-grad-stop0: rgb(var(--kin-400) / 0);
+  --wave-grad-stop55: rgb(var(--aka-400) / 0.25);
+  --wave-grad-stop100: rgb(var(--sumi-900));
+  --wave-stroke: rgb(var(--kin-400) / 0.25);
+  --noise-matrix: "0 0 0 0 0.30  0 0 0 0 0.42  0 0 0 0 0.75  0 0 0 0.4 0";
+  --skeleton-1: rgb(var(--sumi-600) / 0.7);
+  --skeleton-2: rgb(var(--kin-200) / 0.6);
+  --petal-hue: 210 65;
+  --petal-hue2: 215 55;
+  --particle-colors: "#6ba8e8,#4a90e2,#3a8de0,#8fb8e8,#2563eb,#a0c4f0";
+  --click-colors: "#4a90e2,#6ba8e8,#2563eb,#3a8de0,#8fb8e8,#1a3568";
+  --kiritori-grad: linear-gradient(180deg, transparent, rgb(var(--kin-400) / 0.45) 20%, rgb(var(--aka-400) / 0.55) 50%, rgb(var(--kin-400) / 0.45) 80%, transparent);
+  --seigaiha-a: rgb(var(--kin-400) / 0.22);
+  --seigaiha-b: rgb(var(--aka-400) / 0.18);
+  --corner-border: rgb(var(--kin-400) / 0.55);
+  --corner-shadow: rgb(var(--aka-500) / 0.4);
+  --kanji-stroke: rgb(var(--aka-400) / 0.06);
+  color-scheme: light;
+}
+
+/* ===== 平滑切替アニメ ===== */
+* {
+  box-sizing: border-box;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.45s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* 但し transform / opacity を含む演出系は除く（Framer Motion に委ねる） */
+motion- * { transition-property: none; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: rgb(var(--sumi-900));
+  color: rgb(var(--washi-100));
+  font-family: "Noto Sans JP", "Noto Sans SC", sans-serif;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgb(var(--sumi-900)); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(var(--aka-500)), rgb(var(--kin-500)));
+  border-radius: 0;
+  border: 1px solid rgb(var(--sumi-800));
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Noto Serif SC', serif;
+    color: rgb(var(--washi-50));
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .washi-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 2px;
+    box-shadow:
+      0 1px 0 rgb(var(--washi-50) / 0.03) inset,
+      0 0 0 1px rgb(var(--sumi-950) / 0.4) inset,
+      0 24px 60px -30px rgb(var(--sumi-950) / 0.9);
+  }
+
+  .waku-frame {
+    position: relative;
+    border: 1px solid rgb(var(--kin-400) / 0.35);
+    border-radius: 2px;
+  }
+  .waku-frame::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgb(var(--kin-400) / 0.15);
+    border-radius: 1px;
+    pointer-events: none;
+  }
+
+  .stamp-aka {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--stamp-bg);
+    color: rgb(var(--stamp-text));
+    font-family: 'Yuji Syuku', 'Shippori Mincho', serif;
+    border: 2px solid var(--stamp-border);
+    box-shadow:
+      0 0 0 2px rgb(var(--aka-700) / 0.4) inset,
+      0 6px 18px rgb(var(--aka-800) / 0.35);
+    letter-spacing: 0.08em;
+  }
+
+  .text-kinpaku {
+    background: var(--kinpaku-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+  }
+
+  .tategaki {
+    writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.2em;
+  }
+
+  .mizuhiki-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: rgb(var(--kin-400));
+  }
+  .mizuhiki-line::before,
+  .mizuhiki-line::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 50px;
+    background: linear-gradient(90deg, transparent, rgb(var(--kin-400)), transparent);
+  }
+
+  .mizuhiki-link { position: relative; }
+  .mizuhiki-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, rgb(var(--aka-400)), rgb(var(--kin-400)));
+    transition: width 0.35s ease;
+  }
+  .mizuhiki-link:hover::after,
+  .mizuhiki-link.active::after { width: 100%; }
+
+  .shoji-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .washi-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    color: rgb(var(--washi-100));
+    background: linear-gradient(180deg, rgb(var(--aka-500) / 0.12), rgb(var(--aka-500) / 0.06));
+    border: 1px solid rgb(var(--aka-500) / 0.28);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  .washi-tag:hover {
+    background: linear-gradient(180deg, rgb(var(--aka-500) / 0.22), rgb(var(--aka-500) / 0.12));
+    border-color: rgb(var(--kin-400) / 0.4);
+    color: rgb(var(--kin-300));
+  }
+
+  .sumi-kanji-bg {
+    position: absolute;
+    right: -4vw;
+    top: 15%;
+    font-family: 'Yuji Syuku', 'Shippori Mincho', serif;
+    font-weight: 900;
+    font-size: clamp(240px, 38vw, 520px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--kanji-stroke);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .seigaiha-border {
+    background:
+      radial-gradient(circle at 10px 0, transparent 9px, var(--seigaiha-a) 10px, transparent 11px),
+      radial-gradient(circle at 30px 0, transparent 9px, var(--seigaiha-b) 10px, transparent 11px);
+    background-size: 40px 20px;
+    height: 18px;
+  }
+}
+
+/* ===== グローバル装飾 ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.85  0 0 0 0 0.72  0 0 0 0 0.48  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+[data-theme="blue"] body::before {
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.30  0 0 0 0 0.42  0 0 0 0 0.75  0 0 0 0.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.corner-ornament { position: relative; }
+.corner-ornament::before,
+.corner-ornament::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--corner-border);
+  pointer-events: none;
+}
+.corner-ornament::before {
+  top: 12px; left: 12px;
+  border-right: none; border-bottom: none;
+  box-shadow: -2px -2px 0 var(--corner-shadow) inset;
+}
+.corner-ornament::after {
+  right: 12px; bottom: 12px;
+  border-left: none; border-top: none;
+  box-shadow: 2px 2px 0 var(--corner-shadow) inset;
+}
+
+.click-text-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  animation: floatUp 1.5s ease-out forwards;
+  text-shadow: 0 0 6px rgb(var(--kin-400) / 0.55);
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-160px) scale(1.25); opacity: 0; }
+}
+
+/* 背景画像差し替え時のフェード */
+.animate-bg-fade-in {
+  animation: bgFade 0.5s ease-out both;
+}
+@keyframes bgFade {
+  0%   { opacity: 0; transform: scale(1.02); filter: blur(4px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes shojiFlicker {
+  0%, 100% { opacity: 1; }
+  48% { opacity: 0.92; }
+  50% { opacity: 1; }
+  52% { opacity: 0.94; }
+}
+.animate-shoji-flicker { animation: shojiFlicker 6s ease-in-out infinite; }
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-wave-move { animation: waveMove 18s linear infinite; }
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-1) 25%,
+    var(--skeleton-2) 50%,
+    var(--skeleton-1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.section-reveal.visible { opacity: 1; transform: translateY(0); }
+
+.kiritori-v { width: 1px; background: var(--kiritori-grad); }
+
+.kana-label {
+  font-family: 'Zen Old Mincho', serif;
+  color: rgb(var(--aka-300));
+  letter-spacing: 0.4em;
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   和柄 (Wagara) — 伝統的日本文様
+   ============================================================ */
+
+/* 麻の葉 (Asa-no-ha) — 麻の葉模様 */
+.wagara-asanoha {
+  background-image:
+    linear-gradient(60deg, rgb(var(--kin-400) / 0.03) 25%, transparent 25.5%, transparent 75%, rgb(var(--kin-400) / 0.03) 75.5%),
+    linear-gradient(-60deg, rgb(var(--kin-400) / 0.03) 25%, transparent 25.5%, transparent 75%, rgb(var(--kin-400) / 0.03) 75.5%),
+    linear-gradient(0deg, rgb(var(--kin-400) / 0.02) 25%, transparent 25.5%, transparent 75%, rgb(var(--kin-400) / 0.02) 75.5%);
+  background-size: 28px 48px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+/* 亀甲 (Kikkō) — 亀甲柄 */
+.wagara-kikko {
+  background-image:
+    linear-gradient(60deg, transparent 46%, rgb(var(--kin-400) / 0.04) 46%, rgb(var(--kin-400) / 0.04) 54%, transparent 54%),
+    linear-gradient(-60deg, transparent 46%, rgb(var(--kin-400) / 0.04) 46%, rgb(var(--kin-400) / 0.04) 54%, transparent 54%),
+    linear-gradient(0deg, transparent 46%, rgb(var(--kin-400) / 0.04) 46%, rgb(var(--kin-400) / 0.04) 54%, transparent 54%);
+  background-size: 30px 52px;
+}
+
+/* 七宝 (Shippō) — 七宝文様 */
+.wagara-shippo {
+  background-image:
+    radial-gradient(circle at 50% 0%, transparent 12px, rgb(var(--kin-400) / 0.035) 12px, rgb(var(--kin-400) / 0.035) 13px, transparent 13px),
+    radial-gradient(circle at 0% 50%, transparent 12px, rgb(var(--kin-400) / 0.035) 12px, rgb(var(--kin-400) / 0.035) 13px, transparent 13px),
+    radial-gradient(circle at 100% 50%, transparent 12px, rgb(var(--kin-400) / 0.035) 12px, rgb(var(--kin-400) / 0.035) 13px, transparent 13px),
+    radial-gradient(circle at 50% 100%, transparent 12px, rgb(var(--kin-400) / 0.035) 12px, rgb(var(--kin-400) / 0.035) 13px, transparent 13px);
+  background-size: 36px 36px;
+}
+
+/* 青海波 (Seigaiha) — 青海波柄（全面パターン） */
+.wagara-seigaiha {
+  background-image:
+    radial-gradient(circle at 10px 10px, transparent 8px, rgb(var(--kin-400) / 0.05) 8px, rgb(var(--kin-400) / 0.05) 9px, transparent 9px),
+    radial-gradient(circle at 30px 10px, transparent 8px, rgb(var(--aka-400) / 0.04) 8px, rgb(var(--aka-400) / 0.04) 9px, transparent 9px),
+    radial-gradient(circle at 20px 25px, transparent 8px, rgb(var(--kin-400) / 0.05) 8px, rgb(var(--kin-400) / 0.05) 9px, transparent 9px),
+    radial-gradient(circle at 0px 25px, transparent 8px, rgb(var(--aka-400) / 0.04) 8px, rgb(var(--aka-400) / 0.04) 9px, transparent 9px),
+    radial-gradient(circle at 40px 25px, transparent 8px, rgb(var(--aka-400) / 0.04) 8px, rgb(var(--aka-400) / 0.04) 9px, transparent 9px);
+  background-size: 40px 35px;
+}
+
+/* 雪輪 (Yukiwa) — 雪輪文様 */
+.wagara-yukiwa {
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 10px, rgb(var(--kin-400) / 0.04) 10px, rgb(var(--kin-400) / 0.04) 11px, transparent 11px, transparent 13px, rgb(var(--kin-400) / 0.02) 13px, rgb(var(--kin-400) / 0.02) 14px, transparent 14px);
+  background-size: 32px 32px;
+}
+
+/* 市松 (Ichimatsu) — 市松模様 */
+.wagara-ichimatsu {
+  background-image:
+    linear-gradient(45deg, rgb(var(--kin-400) / 0.03) 25%, transparent 25%, transparent 75%, rgb(var(--kin-400) / 0.03) 75%, rgb(var(--kin-400) / 0.03)),
+    linear-gradient(45deg, rgb(var(--kin-400) / 0.03) 25%, transparent 25%, transparent 75%, rgb(var(--kin-400) / 0.03) 75%, rgb(var(--kin-400) / 0.03));
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+/* 網代 (Ajiro) — 網代編み */
+.wagara-ajiro {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 6px, rgb(var(--kin-400) / 0.03) 6px, rgb(var(--kin-400) / 0.03) 7px),
+    repeating-linear-gradient(-45deg, transparent, transparent 6px, rgb(var(--kin-400) / 0.03) 6px, rgb(var(--kin-400) / 0.03) 7px);
+  background-size: 14px 14px;
+}
+
+/* ============================================================
+   和柄セクション区切り — 装飾的な区切り線
+   ============================================================ */
+
+/* 波型区切り (Nami-kugiri) */
+.wagara-divider-wave {
+  position: relative;
+  height: 40px;
+  overflow: hidden;
+}
+.wagara-divider-wave svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 家紋区切り (Kamon-kugiri) — 中央に紋を配した区切り */
+.wagara-divider-kamon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0;
+}
+.wagara-divider-kamon::before,
+.wagara-divider-kamon::after {
+  content: "";
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--kin-400) / 0.3), rgb(var(--kin-400) / 0.5));
+}
+.wagara-divider-kamon::after {
+  background: linear-gradient(90deg, rgb(var(--kin-400) / 0.5), rgb(var(--kin-400) / 0.3), transparent);
+}
+
+/* 三つ割り区切り (Mitsuwari) */
+.wagara-divider-mitsu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  opacity: 0.6;
+}
+.wagara-divider-mitsu span {
+  width: 4px;
+  height: 4px;
+  rotate: 45deg;
+  background: rgb(var(--kin-400));
+}
+.wagara-divider-mitsu span:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  background: rgb(var(--aka-400));
+}
+
+/* ============================================================
+   和紙テクスチャ強化 (Washi Texture Enhancement)
+   ============================================================ */
+.washi-texture {
+  position: relative;
+}
+.washi-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='w'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9  0 0 0 0 0.85  0 0 0 0 0.72  0 0 0 0.15 0'/></filter><rect width='100%' height='100%' filter='url(%23w)'/></svg>");
+  border-radius: inherit;
+}
+
+/* 縦書き装饰 (Tategaki-deco) — より美しい縦書き */
+.tategaki-deco {
+  writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  text-orientation: upright;
+  letter-spacing: 0.3em;
+  line-height: 2.4em;
+  font-family: 'Shippori Mincho', serif;
+}
+
+/* 扇子装飾 (Sensu-deco) */
+.sensu-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 24px;
+}
+.sensu-line::before,
+.sensu-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--kin-400) / 0.4));
+}
+.sensu-line::after {
+  background: linear-gradient(90deg, rgb(var(--kin-400) / 0.4), transparent);
+}
+
+/* 和風セクション見出しラベル (Wafu-label) */
+.wafu-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  border: 1px solid rgb(var(--kin-400) / 0.25);
+  background: linear-gradient(180deg, rgb(var(--kin-400) / 0.06), transparent);
+  border-radius: 2px;
+}
+.wafu-section-label::before,
+.wafu-section-label::after {
+  content: "❘";
+  font-size: 8px;
+  color: rgb(var(--aka-400) / 0.5);
+  letter-spacing: 0;
+}
