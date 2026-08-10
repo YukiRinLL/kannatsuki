@@ -30,6 +30,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "首页", sub: "はじめに", path: "/" },
     { label: "FC历史", sub: "歴史", path: "/history" },
+    { label: "成员名簿", sub: "なかま", path: "/members" },
   ];
 
   return (

@@ -7,6 +7,7 @@ import ClickTextEffect from "@/components/effects/ClickTextEffect";
 import TitleAnimation from "@/components/effects/TitleAnimation";
 import Home from "@/pages/Home";
 import History from "@/pages/History";
+import Members from "@/pages/Members";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/history" element={<History />} />
+        <Route path="/members" element={<Members />} />
       </Routes>
       <Footer />
     </Router>
