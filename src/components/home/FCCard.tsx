@@ -101,7 +101,7 @@ export default function FCCard() {
       />
       <InfoRow
         icon={<Star size={16} strokeWidth={1.5} />}
-        label="部隊 / 部队等级"
+        label="FC / 部队等级"
         value={`Lv.${info.guild_rank ? info.guild_rank.split(".")[0] : "—"}`}
         iconColor="rgb(var(--aka-500))"
       />
@@ -114,7 +114,7 @@ export default function FCCard() {
       <InfoRow
         icon={<MapPinned size={16} strokeWidth={1.5} />}
         label="アドレス / 地址"
-        value="ラベンダーベッド 第29区 58号"
+        value="NULL"
         iconColor="rgb(var(--aka-500))"
       />
     </>

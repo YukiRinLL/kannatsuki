@@ -83,8 +83,8 @@ interface GuildInfoResponse {
 interface GuildInfo {
   guild_name: string;           // 部队名 "Phantom"
   guild_tag: string;            // 标签 "虚妄"
-  area_name: string;            // 大区 "莫古力"
-  group_name: string;           // 服务器 "拂晓之间"
+  area_name: string;            // 大区 "陆行鸟"
+  group_name: string;           // 服务器 "神意之地"
   active_time_weekday: string;  // 工作日活跃 "01:00-24:00"
   active_time_weekend: string;   // 周末活跃 "01:00-24:00"
   create_time: string;          // 成立时间 "2020-08-17 22:37:01"

@@ -8,7 +8,7 @@ import type { ThemeName } from "@/hooks/useTheme";
 
 const LOGOS = {
   red: "/images/frame-1-121x121-B.png",
-  blue: "/images/kanazuki word.png",
+  blue: "/images/kanazuki ele.png",
 } as const;
 
 export function getLogo(theme: ThemeName) {

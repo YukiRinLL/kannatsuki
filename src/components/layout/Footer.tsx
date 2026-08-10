@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="flex items-center gap-8 opacity-40">
               <Kamon size={24} variant="mokko" />
               <div className="mizuhiki-line w-72 opacity-80">
-                <span className="font-mincho text-xs tracking-[0.4em]">FFXIV · CWLS</span>
+                <span className="font-mincho text-xs tracking-[0.4em]">FFXIV · FC</span>
               </div>
               <Kamon size={24} variant="mokko" />
             </div>
@@ -38,7 +38,7 @@ export default function Footer() {
             <p className="text-[11px] leading-7 text-sumi-200/70 font-gothic max-w-xl">
               Copyright © SQUARE ENIX CO., LTD. All Rights Reserved.
               <br />
-              © Crystal Alliance cir. · 神無月 〈终焉〉 部隊ホームページ
+              © Crystal Alliance cir. · 神無月 〈终焉〉 FCホームページ
               <br />
               当サイトは非公式のファンサイトであり、スクウェア・エニックス様とは一切関係ありません。
             </p>

@@ -19,13 +19,13 @@ export interface GuildInfo {
 const casualGuildInfo: GuildInfo = {
   guild_name: "Kanazuki",
   guild_tag: "终焉",
-  area_name: "莫古力",
-  group_name: "拂晓之间",
+  area_name: "陆行鸟",
+  group_name: "神意之地",
   active_time_weekday: "01:00-24:00",
   active_time_weekend: "01:00-24:00",
   create_time: "2020-08-17 22:37:01",
-  active_member_num: 46,
-  member_num: 84,
+  active_member_num: 5,
+  member_num: 6,
   guild_rank: "30",
   grand_parentname: "恒辉队",
   guild_pic: "/images/kanazuki logo.png",
@@ -50,13 +50,13 @@ const casualGuildInfo: GuildInfo = {
 const hardcoreGuildInfo: GuildInfo = {
   guild_name: "Kanazuki",
   guild_tag: "终焉",
-  area_name: "莫古力",
-  group_name: "拂晓之间",
+  area_name: "陆行鸟",
+  group_name: "神意之地",
   active_time_weekday: "20:00-24:00",
   active_time_weekend: "14:00-24:00",
   create_time: "2020-08-17 22:37:01",
-  active_member_num: 24,
-  member_num: 48,
+  active_member_num: 5,
+  member_num: 6,
   guild_rank: "30",
   grand_parentname: "恒辉队",
   guild_pic: "/images/frame-1-290x290-B.png",
@@ -65,14 +65,7 @@ const hardcoreGuildInfo: GuildInfo = {
     "挑战极本",
     "挑战零式",
     "挑战绝本",
-    "高难度攻略",
-    "首杀目标",
-    "DPS追求",
-    "精密操作",
-    "团队战术",
-    "週刊攻略",
-    "练习生歓迎",
-    "経験者優遇",
+    "高难度攻略"
   ],
 };
 
@@ -83,4 +76,4 @@ export function getGuildInfo(theme: ThemeName): GuildInfo {
 export const defaultGuildInfo = casualGuildInfo;
 
 export const API_URL =
-  "https://phantoms-backend.onrender.com/api/risingstones/guild-info";
+  "https://kannatsuki-backend.onrender.com/api/risingstones/guild-info";

@@ -36,13 +36,9 @@ export default function SocialLinks() {
             <span className="font-mincho text-xs tracking-[0.4em]">CONTACT US</span>
           </div>
           <p className="font-gothic text-[14px] text-sumi-200/60 mt-6 max-w-lg mx-auto leading-[2]">
-            {theme === "red"
-              ? "精鋭部隊への参加希望、お問い合わせはこちらから。"
-              : "仲間のお声かけはいつでも歓迎いたします。"}
+            仲間のお声かけはいつでも歓迎いたします。
             <br />
-            {theme === "red"
-              ? "厳しい門戸を潜り抜け、终焉の戦士となれ。"
-              : "お気軽に以下のリンクから遊びに来てください。"}
+            お気軽に以下のリンクから遊びに来てください。
           </p>
         </motion.div>
 
