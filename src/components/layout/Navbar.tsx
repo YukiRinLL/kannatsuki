@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
-import { getLogo } from "@/lib/themeAssets";
+import { getLogo, getLogoFallback } from "@/lib/themeAssets";
 
 /**
  * しょうじ (障子) 風ナビゲーション
@@ -50,7 +50,13 @@ export default function Navbar() {
               className="w-11 h-11 border border-kin-400/40 transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105"
               style={{ borderRadius: "2px" }}
               onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
+                const img = e.currentTarget;
+                const fallback = getLogoFallback(theme);
+                if (img.src !== fallback) {
+                  img.src = fallback;
+                } else {
+                  img.style.display = "none";
+                }
               }}
             />
             {/* 朱いワンポイント */}

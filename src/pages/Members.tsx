@@ -46,7 +46,7 @@ export default function Members() {
             <p className="font-mincho text-[14px] text-sumi-200/70 mt-7 leading-[2.2] max-w-xl mx-auto">
               {isRed
                 ? "终焉的精锐，于此集结。"
-                : "神无月的伙伴们，与你同行。"}
+                : "神無月的伙伴们，与你同行。"}
               <br />
               {isRed
                 ? "每一位皆为极限之路的同行者。"

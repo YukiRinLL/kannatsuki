@@ -1,10 +1,11 @@
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { imageSources } from "@/lib/imageSources";
 
 /**
  * 和紙風背景 — ユーザーが提供した16:9背景画像を使用
- *  青/白 → /images/BW.png (青海波×竹×窓格子)
- *  紅/黒/金 → /images/RBY.png (松×雲×扇子×青海波)
+ *  青/白 → BW.png (青海波×竹×窓格子)
+ *  紅/黒/金 → RBY.png (松×雲×扇子×青海波)
  *  重ね掛け:
  *   ① 背景画像（cover + 暗め/明めオーバーレイで読みやすさ確保）
  *   ② 舞う花びら — 桜/雪
@@ -13,7 +14,9 @@ import { useTheme } from "@/hooks/useTheme";
 export default function StarfieldBackground() {
   const theme = useTheme((s) => s.theme);
   const isRed = theme === "red";
-  const bgSrc = isRed ? "/images/RBY.png" : "/images/BW.png";
+  const bgFile = isRed ? "RBY.png" : "BW.png";
+  const [bgSrc, setBgSrc] = useState(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
+  const bgFallback = imageSources[bgFile]?.local || `/images/${bgFile}`;
 
   const petals = useMemo(() => {
     return Array.from({ length: 18 }, (_, i) => ({
@@ -38,11 +41,14 @@ export default function StarfieldBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-      {/* ① 16:9背景画像 */}
+      {/* ① 16:9背景画像 — CDN 失败回退到本地 */}
       <div
         key={theme}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-bg-fade-in"
         style={{ backgroundImage: `url(${bgSrc})` }}
+        onError={() => {
+          if (bgSrc !== bgFallback) setBgSrc(bgFallback);
+        }}
       />
       {/* 読みやすさ用オーバーレイ
           青/白 → 強めの白い半透明マスクで全体を明るく

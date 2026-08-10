@@ -1,4 +1,5 @@
 import type { ThemeName } from "@/hooks/useTheme";
+import { imageSources } from "@/lib/imageSources";
 
 export interface GuildInfo {
   guild_name: string;
@@ -28,7 +29,7 @@ const casualGuildInfo: GuildInfo = {
   member_num: 6,
   guild_rank: "30",
   grand_parentname: "恒辉队",
-  guild_pic: "/images/kanazuki logo.png",
+  guild_pic: imageSources["kanazuki logo.png"].cdn,
   guild_label: [
     "欢迎新手",
     "欢迎回归者",
@@ -59,7 +60,7 @@ const hardcoreGuildInfo: GuildInfo = {
   member_num: 6,
   guild_rank: "30",
   grand_parentname: "恒辉队",
-  guild_pic: "/images/frame-1-290x290-B.png",
+  guild_pic: imageSources["frame-1-290x290-B.png"].cdn,
   guild_label: [
     "硬核玩家",
     "挑战极本",
