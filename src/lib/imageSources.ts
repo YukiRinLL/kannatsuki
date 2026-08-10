@@ -11,17 +11,17 @@ export const imageSources: Record<string, { cdn: string; local: string }> = {
     cdn: "https://free.picui.cn/free/2026/08/10/6a79704d1cb0f.png",
     local: "/images/frame-1-290x290-B.png",
   },
-  "kanazuki ele.png": {
+  "kannatsuki ele.png": {
     cdn: "https://free.picui.cn/free/2026/08/10/6a797052e08cf.png",
-    local: "/images/kanazuki ele.png",
+    local: "/images/kannatsuki ele.png",
   },
-  "kanazuki logo.png": {
+  "kannatsuki logo.png": {
     cdn: "https://free.picui.cn/free/2026/08/10/6a797050772d6.png",
-    local: "/images/kanazuki logo.png",
+    local: "/images/kannatsuki logo.png",
   },
-  "kanazuki word.png": {
+  "kannatsuki word.png": {
     cdn: "https://free.picui.cn/free/2026/08/10/6a797053d45e2.png",
-    local: "/images/kanazuki word.png",
+    local: "/images/kannatsuki word.png",
   },
   "BW.png": {
     cdn: "https://i.imgs.ovh/2026/08/10/6ae9faa34c600c934375bcb766a3824c.png",

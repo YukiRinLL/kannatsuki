@@ -29,7 +29,7 @@ export const useTheme = create<ThemeState>()(
       },
     }),
     {
-      name: "kanazuki-theme",
+      name: "kannatsuki-theme",
       onRehydrateStorage: () => (state) => {
         if (state) applyTheme(state.theme);
       },

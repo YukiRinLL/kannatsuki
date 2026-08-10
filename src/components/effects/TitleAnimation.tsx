@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function TitleAnimation() {
   useEffect(() => {
-    const originalTitle = "(ノ￣▽￣) Kanazuki !";
+    const originalTitle = "(ノ￣▽￣) Kannatsuki !";
     document.title = originalTitle;
 
     const handleVisibilityChange = () => {

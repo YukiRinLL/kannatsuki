@@ -18,7 +18,7 @@ export interface GuildInfo {
 }
 
 const casualGuildInfo: GuildInfo = {
-  guild_name: "Kanazuki",
+  guild_name: "Kannatsuki",
   guild_tag: "终焉",
   area_name: "陆行鸟",
   group_name: "神意之地",
@@ -29,7 +29,7 @@ const casualGuildInfo: GuildInfo = {
   member_num: 6,
   guild_rank: "30",
   grand_parentname: "恒辉队",
-  guild_pic: imageSources["kanazuki logo.png"].cdn,
+  guild_pic: imageSources["kannatsuki logo.png"].cdn,
   guild_label: [
     "欢迎新手",
     "欢迎回归者",
@@ -49,7 +49,7 @@ const casualGuildInfo: GuildInfo = {
 };
 
 const hardcoreGuildInfo: GuildInfo = {
-  guild_name: "Kanazuki",
+  guild_name: "Kannatsuki",
   guild_tag: "终焉",
   area_name: "陆行鸟",
   group_name: "神意之地",

@@ -4,13 +4,13 @@ import { imageSources } from "./imageSources";
 /**
  * 主題別ロゴマッピング
  *  紅墨金 (red) → 硬核玩法ロゴ (frame-1)
- *  蒼白 (blue) → 普通玩法ロゴ (kanazuki)
+ *  蒼白 (blue) → 普通玩法ロゴ (kannatsuki)
  *  优先使用 CDN，失败回退到本地
  */
 
 const LOGO_FILES = {
   red: "frame-1-121x121-B.png",
-  blue: "kanazuki ele.png",
+  blue: "kannatsuki ele.png",
 } as const;
 
 export function getLogo(theme: ThemeName) {

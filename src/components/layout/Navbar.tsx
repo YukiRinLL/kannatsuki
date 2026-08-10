@@ -46,7 +46,7 @@ export default function Navbar() {
             <img
               key={theme}
               src={logoSrc}
-              alt="Kanazuki"
+              alt="Kannatsuki"
               className="w-11 h-11 border border-kin-400/40 transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105"
               style={{ borderRadius: "2px" }}
               onError={(e) => {
