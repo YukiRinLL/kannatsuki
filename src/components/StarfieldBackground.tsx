@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { imageSources } from "@/lib/imageSources";
 
@@ -17,6 +17,11 @@ export default function StarfieldBackground() {
   const bgFile = isRed ? "RBY.png" : "BW.png";
   const [bgSrc, setBgSrc] = useState(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
   const bgFallback = imageSources[bgFile]?.local || `/images/${bgFile}`;
+
+  // 主題切替時に背景画像を同期
+  useEffect(() => {
+    setBgSrc(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
+  }, [bgFile]);
 
   const petals = useMemo(() => {
     return Array.from({ length: 18 }, (_, i) => ({

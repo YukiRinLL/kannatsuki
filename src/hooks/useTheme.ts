@@ -17,7 +17,7 @@ function applyTheme(theme: ThemeName) {
 export const useTheme = create<ThemeState>()(
   persist(
     (set, get) => ({
-      theme: "red",
+      theme: "blue",
       toggle: () => {
         const next = get().theme === "red" ? "blue" : "red";
         applyTheme(next);
