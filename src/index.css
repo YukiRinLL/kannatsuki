@@ -349,6 +349,14 @@ body {
     color: rgb(var(--kin-300));
   }
 
+  .washi-sub-card {
+    position: relative;
+    background: linear-gradient(180deg, rgb(var(--sumi-950) / 0.4), rgb(var(--sumi-950) / 0.25));
+    border: 1px solid rgb(var(--kin-400) / 0.15);
+    border-left: 2px solid rgb(var(--aka-500) / 0.4);
+    border-radius: 2px;
+  }
+
   .sumi-kanji-bg {
     position: absolute;
     right: -4vw;

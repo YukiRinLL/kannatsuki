@@ -15,6 +15,16 @@ export interface GuildInfo {
   grand_parentname: string;
   guild_pic: string;
   guild_label: string[];
+  /** FC 紹介文 / 简介 */
+  guild_describe: string;
+  /** FC 掲示板 / 公告板 */
+  guild_board: string;
+  /** ハウス情報 / 房屋信息 */
+  house_info: string;
+  /** データ更新時間 / 数据同步时间 */
+  update_time: string;
+  /** ハウス公開フラグ / 房屋是否公开 */
+  house_public: boolean;
 }
 
 const casualGuildInfo: GuildInfo = {
@@ -46,6 +56,11 @@ const casualGuildInfo: GuildInfo = {
     "截图爱好者",
     "装修爱好者",
   ],
+  guild_describe: "欢迎^ ^",
+  guild_board: "部队权限是全部打开的，特效之类的可以自己换 Q群:2154059817",
+  house_info: "未登记",
+  update_time: "",
+  house_public: false,
 };
 
 const hardcoreGuildInfo: GuildInfo = {
@@ -68,6 +83,11 @@ const hardcoreGuildInfo: GuildInfo = {
     "挑战绝本",
     "高难度攻略"
   ],
+  guild_describe: "欢迎^ ^",
+  guild_board: "部队权限是全部打开的，特效之类的可以自己换 Q群:2154059817",
+  house_info: "未登记",
+  update_time: "",
+  house_public: false,
 };
 
 export function getGuildInfo(theme: ThemeName): GuildInfo {
@@ -77,4 +97,7 @@ export function getGuildInfo(theme: ThemeName): GuildInfo {
 export const defaultGuildInfo = casualGuildInfo;
 
 export const API_URL =
-  "https://kannatsuki-backend.onrender.com/api/risingstones/guild-info";
+  "https://phantoms-backend.onrender.com/api/risingstones/guild-info?guildId=9375509261766965890";
+
+/** API 取得失敗時のローカルフォールバックデータ */
+export const LOCAL_API_URL = "/data/guild-info.json";

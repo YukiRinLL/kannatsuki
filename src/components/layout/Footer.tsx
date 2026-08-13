@@ -9,20 +9,13 @@ export default function Footer() {
       <div className="border-t border-kin-400/15 bg-gradient-to-b from-sumi-900/40 to-sumi-950/95 backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl px-4 py-10">
           <div className="flex flex-col items-center gap-6 text-center">
-            {/* 装飾の印 — 小さな朱四角 */}
-            <div className="flex items-center gap-5">
-              <span className="stamp-aka"
-                style={{ width: "38px", height: "38px", fontSize: "10px", borderRadius: "2px" }}
-              >
-                神
-              </span>
-              <div className="text-left">
-                <div className="font-mincho text-base tracking-[0.3em] text-kin-300">
-                  神無月 · 终焉
-                </div>
-                <div className="kana-label tracking-[0.3em]">
-                  KANNAZUKI · SHUUEN
-                </div>
+            {/* FC 名 */}
+            <div>
+              <div className="font-mincho text-base tracking-[0.3em] text-kin-300">
+                神無月 · 终焉
+              </div>
+              <div className="kana-label tracking-[0.3em]">
+                KANNAZUKI · SHUUEN
               </div>
             </div>
 

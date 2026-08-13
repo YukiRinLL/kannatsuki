@@ -6,17 +6,22 @@ import {
   Users,
   Star,
   Shield,
-  MapPinned,
+  Home,
   RefreshCw,
+  MessageSquare,
+  Sparkles,
+  Clock3,
 } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { useGuildInfo } from "@/hooks/useGuildInfo";
 import { getGuildInfo, type GuildInfo } from "@/data/guildInfo";
+import { getLogoFallback } from "@/lib/themeAssets";
+import { IMAGE_PROXY, DEFAULT_AVATAR } from "@/data/members";
 
 /**
  * FC Info カード — 巻物/軸装飾風
- *  墨色 + 金二重線 + 朱色アクセント
- *  主題別ロゴ・内容切替
+ * 左: FC エンブレム / 右: 情報一覧
+ * 下部: 紹介文・掲示板・タグ
  */
 
 function InfoRow({
@@ -41,8 +46,8 @@ function InfoRow({
       <span className="font-mincho text-[12.5px] tracking-[0.3em] text-sumi-200/70 flex-shrink-0 pt-0.5">
         {label}
       </span>
-      <span className="font-gothic text-[14px] text-washi-100 ml-auto text-right leading-[1.8] max-w-[55%]">
-        {value}
+      <span className="font-gothic text-[14px] text-washi-100 ml-auto text-right leading-[1.8] max-w-[55%] break-words">
+        {value || "—"}
       </span>
     </div>
   );
@@ -58,13 +63,24 @@ function SkeletonRow() {
   );
 }
 
+/** エンブレム画像にプロキシを通す */
+function getProxiedGuildPic(url: string): string {
+  if (!url) return DEFAULT_AVATAR;
+  return IMAGE_PROXY + encodeURIComponent(url);
+}
+
 export default function FCCard() {
   const theme = useTheme((s) => s.theme);
   const { data, loading, error, retry } = useGuildInfo();
 
-  // 主題別のデフォルト値を使用（API未取得時のフォールバック）
   const fallbackInfo = getGuildInfo(theme);
   const displayInfo: GuildInfo = data || fallbackInfo;
+
+  const guildPicSrc = getProxiedGuildPic(displayInfo.guild_pic);
+  const fallbackPic =
+    theme === "red"
+      ? getLogoFallback("red")
+      : getLogoFallback("blue");
 
   const formatTime = (timeStr: string) => {
     if (!timeStr) return "—";
@@ -75,7 +91,7 @@ export default function FCCard() {
     <>
       <InfoRow
         icon={<MapPin size={16} strokeWidth={1.5} />}
-        label=" サーバー / 服务器"
+        label="サーバー / 服务器"
         value={`${info.area_name} · ${info.group_name}`}
         iconColor="rgb(var(--kin-400))"
       />
@@ -112,10 +128,15 @@ export default function FCCard() {
         iconColor="rgb(var(--kin-300))"
       />
       <InfoRow
-        icon={<MapPinned size={16} strokeWidth={1.5} />}
-        label="アドレス / 地址"
-        value="NULL"
+        icon={<Home size={16} strokeWidth={1.5} />}
+        label="ハウス / 房屋"
+        value={info.house_public ? info.house_info : "非公開"}
         iconColor="rgb(var(--aka-500))"
+      />
+      <InfoRow
+        icon={<Clock3 size={16} strokeWidth={1.5} />}
+        label="同期 / 同步"
+        value={info.update_time}
       />
     </>
   );
@@ -158,11 +179,43 @@ export default function FCCard() {
           <div className="absolute -right-5 -bottom-1 w-6 h-6 bg-gradient-to-br from-kin-300 to-kin-600 border border-sumi-800 z-10" />
 
           <div className="washi-card washi-texture px-6 md:px-10 py-8 md:py-12 relative corner-ornament">
-            <div className="flex flex-col gap-10 md:gap-12">
-              {/* リスト */}
-              <div className="flex-1">
+            {/* 上段：エンブレム + 情報リスト */}
+            <div className="flex flex-col md:flex-row gap-8 md:gap-10">
+              {/* 左：FC エンブレム */}
+              {/*
+              <div className="flex flex-col items-center md:items-start flex-shrink-0 gap-4">
+                {loading ? (
+                  <div className="w-28 h-28 md:w-32 md:h-32 skeleton-shimmer" />
+                ) : (
+                  <div
+                    className="relative w-28 h-28 md:w-32 md:h-32 border overflow-hidden"
+                    style={{
+                      borderRadius: "2px",
+                      borderColor: "rgb(var(--kin-400) / 0.4)",
+                      background: "rgb(var(--sumi-900) / 0.4)",
+                    }}
+                  >
+                    <img
+                      src={guildPicSrc}
+                      alt={displayInfo.guild_name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = fallbackPic;
+                      }}
+                    />
+                    <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-kin-400/60" />
+                    <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-kin-400/60" />
+                    <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-kin-400/60" />
+                    <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-kin-400/60" />
+                  </div>
+                )}
+              </div>
+              */}
+
+              {/* 右：ヘッダ + 情報行 */}
+              <div className="flex-1 min-w-0">
                 {/* ヘッダ */}
-                <div className="mb-7 pb-6 border-b border-kin-400/15">
+                <div className="mb-5 pb-5 border-b border-kin-400/15">
                   {loading ? (
                     <>
                       <div className="w-40 h-8 skeleton-shimmer mb-3" />
@@ -173,7 +226,8 @@ export default function FCCard() {
                       <h3 className="font-yu text-3xl md:text-4xl text-washi-50 tracking-[0.2em]">
                         {displayInfo.guild_name}
                       </h3>
-                      <span className="stamp-aka font-yu"
+                      <span
+                        className="stamp-aka font-yu"
                         style={{
                           width: "54px",
                           height: "54px",
@@ -194,7 +248,7 @@ export default function FCCard() {
 
                 {/* 行 */}
                 {loading
-                  ? Array.from({ length: 8 }).map((_, i) => <SkeletonRow key={i} />)
+                  ? Array.from({ length: 9 }).map((_, i) => <SkeletonRow key={i} />)
                   : renderInfo(displayInfo)}
 
                 {error && !loading && (
@@ -209,27 +263,60 @@ export default function FCCard() {
               </div>
             </div>
 
-            {/* タグ — 和印スタイル */}
+            {/* 下段：紹介文・掲示板・タグ */}
             {!loading && (
-              <div className="mt-10 pt-6 border-t border-kin-400/12">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="kana-label tracking-[0.4em]">タグ / 标签</span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-aka-500/30 to-transparent" />
-                </div>
-                <div className="flex flex-wrap gap-2 justify-start">
-                  {displayInfo.guild_label.map((label, i) => (
-                    <motion.span
-                      key={`${theme}-${label}`}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: i * 0.03 }}
-                      className="washi-tag font-mincho tracking-[0.15em]"
-                    >
-                      ・ {label.trim()}
-                    </motion.span>
-                  ))}
-                </div>
+              <div className="mt-10 pt-6 border-t border-kin-400/12 space-y-6">
+                {/* 紹介文 */}
+                {displayInfo.guild_describe && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <Sparkles size={14} className="text-kin-400" strokeWidth={1.5} />
+                      <span className="kana-label tracking-[0.4em]">FC紹介 / 简介</span>
+                      <span className="h-px flex-1 bg-gradient-to-r from-kin-400/30 to-transparent" />
+                    </div>
+                    <p className="font-mincho text-[14px] text-washi-100 leading-[2] pl-6">
+                      {displayInfo.guild_describe}
+                    </p>
+                  </div>
+                )}
+
+                {/* 掲示板 */}
+                {displayInfo.guild_board && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <MessageSquare size={14} className="text-aka-400" strokeWidth={1.5} />
+                      <span className="kana-label tracking-[0.4em]">FC掲示板 / 公告</span>
+                      <span className="h-px flex-1 bg-gradient-to-r from-aka-500/30 to-transparent" />
+                    </div>
+                    <div className="washi-sub-card pl-6 pr-4 py-3 font-gothic text-[13px] text-washi-100/90 leading-[2]">
+                      {displayInfo.guild_board}
+                    </div>
+                  </div>
+                )}
+
+                {/* タグ */}
+                {displayInfo.guild_label.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="kana-label tracking-[0.4em]">タグ / 标签</span>
+                      <span className="h-px flex-1 bg-gradient-to-r from-aka-500/30 to-transparent" />
+                    </div>
+                    <div className="flex flex-wrap gap-2 justify-start">
+                      {displayInfo.guild_label.map((label, i) => (
+                        <motion.span
+                          key={`${theme}-${label}`}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: i * 0.03 }}
+                          className="washi-tag font-mincho tracking-[0.15em]"
+                        >
+                          ・ {label.trim()}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
