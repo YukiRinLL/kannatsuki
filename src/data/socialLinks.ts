@@ -11,21 +11,21 @@ export interface SocialLink {
 const casualSocialLinks: SocialLink[] = [
   {
     name: "Lodestone",
-    url: "https://jp.finalfantasyxiv.com/lodestone/freecompany/9227453424017171422/",
+    url: "",
     icon: "scroll",
     color: "#6592e6",
     hoverColor: "#7ca1e9",
   },
   {
     name: "Discord",
-    url: "https://kaihei.co/Pz0Q4r",
+    url: "",
     icon: "message-circle",
     color: "#5865F2",
     hoverColor: "#7a83f3",
   },
   {
     name: "GitHub",
-    url: "https://github.com/YukiRinLL/FFXIV_Kannatsuki_MainPage",
+    url: "https://github.com/YukiRinLL/kannatsuki",
     icon: "github",
     color: "#a0a0b8",
     hoverColor: "#c5c5d8",
@@ -35,21 +35,21 @@ const casualSocialLinks: SocialLink[] = [
 const hardcoreSocialLinks: SocialLink[] = [
   {
     name: "Lodestone",
-    url: "https://jp.finalfantasyxiv.com/lodestone/freecompany/9227453424017171422/",
+    url: "",
     icon: "scroll",
     color: "#c72422",
     hoverColor: "#e68c86",
   },
   {
     name: "Discord",
-    url: "https://kaihei.co/Pz0Q4r",
+    url: "",
     icon: "message-circle",
     color: "#d8ad43",
     hoverColor: "#ecd99e",
   },
   {
     name: "Raiding Hub",
-    url: "https://kaihei.co/Pz0Q4r",
+    url: "",
     icon: "github",
     color: "#b01a1d",
     hoverColor: "#d64f49",

@@ -103,7 +103,7 @@ export default function Navbar() {
           <ThemeToggle />
 
           <a
-            href="https://jp.finalfantasyxiv.com/lodestone/freecompany/9227453424017171422/"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 px-5 py-2 border border-kin-400/40 hover:border-aka-400/70 transition-all duration-300"
@@ -161,7 +161,7 @@ export default function Navbar() {
           <ThemeToggle />
 
           <a
-            href="https://jp.finalfantasyxiv.com/lodestone/freecompany/9227453424017171422/"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="font-mincho tracking-[0.2em] text-aka-300"
