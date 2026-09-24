@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { useLocation } from "react-router-dom";
 import { imageSources } from "@/lib/imageSources";
 
 /**
@@ -13,13 +14,17 @@ import { imageSources } from "@/lib/imageSources";
  */
 export default function StarfieldBackground() {
   const theme = useTheme((s) => s.theme);
+  const location = useLocation();
   const isRed = theme === "red";
   const isJapan = theme === "japan";
+  const isTools = theme === "tools";
+  const isPlainPage = location.pathname === "/members" || location.pathname === "/tools";
+  const isHistoryPage = location.pathname === "/history";
   const bgFile = isRed ? "RBY.png" : "BW.png";
   const [bgSrc, setBgSrc] = useState(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
   const bgFallback = imageSources[bgFile]?.local || `/images/${bgFile}`;
 
-  // 主題切替時に背景画像を同期
+  // 主題切替時に背景图片を同步
   useEffect(() => {
     setBgSrc(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
   }, [bgFile]);
@@ -47,31 +52,41 @@ export default function StarfieldBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-      {/* ① 16:9背景画像 — CDN 失败回退到本地 */}
-      <div
-        key={theme}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-bg-fade-in"
-        style={{ backgroundImage: `url(${bgSrc})` }}
-        onError={() => {
-          if (bgSrc !== bgFallback) setBgSrc(bgFallback);
-        }}
-      />
+      {!isPlainPage && (
+        <div
+          key={theme}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-bg-fade-in"
+          style={{ backgroundImage: `url(${bgSrc})` }}
+          onError={() => {
+            if (bgSrc !== bgFallback) setBgSrc(bgFallback);
+          }}
+        />
+      )}
       {/* 読みやすさ用オーバーレイ
           青/白 → 強めの白い半透明マスクで全体を明るく
           紅/黒/金 → 強めの黒い半透明マスクでコントラスト確保 */}
       <div
         className="absolute inset-0"
         style={{
-          background: isRed
+          background: isPlainPage
+            ? "var(--bg-page)"
+            : isRed
             ? "linear-gradient(180deg, rgb(var(--sumi-950) / 0.78) 0%, rgb(var(--sumi-950) / 0.58) 25%, rgb(var(--sumi-950) / 0.62) 55%, rgb(var(--sumi-950) / 0.82) 100%)"
-            : isJapan
+            : isJapan || isTools
             ? "linear-gradient(180deg, rgb(var(--sumi-900) / 0.68) 0%, rgb(var(--sumi-900) / 0.54) 35%, rgb(var(--sumi-900) / 0.72) 100%)"
             : "linear-gradient(180deg, rgb(255 255 255 / 0.82) 0%, rgb(255 255 255 / 0.70) 25%, rgb(255 255 255 / 0.72) 55%, rgb(255 255 255 / 0.88) 100%)",
         }}
       />
 
-      {/* ② 舞う花びら — 色 CSS 変数で追従 */}
-      {petals.map((p) => (
+      {isPlainPage && (
+        <>
+          <div className="absolute inset-0 opacity-45 bg-wagara-lines" />
+          <div className="absolute inset-0 opacity-30 bg-wagara-seigaiha" />
+        </>
+      )}
+
+      {/* 工具集与成员簿使用纹路；历史页保持纯净的蓝白背景 */}
+      {!isHistoryPage && petals.map((p) => (
         <span
           key={p.id}
           className="absolute animate-sakura-fall"
@@ -103,7 +118,7 @@ export default function StarfieldBackground() {
       ))}
 
       {/* ③ 金/青の塵 */}
-      <svg
+      {!isHistoryPage && <svg
         className="absolute inset-0 w-full h-full opacity-50 pointer-events-none"
         preserveAspectRatio="none"
         viewBox="0 0 1600 900"
@@ -118,7 +133,7 @@ export default function StarfieldBackground() {
             opacity={p.op}
           />
         ))}
-      </svg>
+      </svg>}
     </div>
   );
 }

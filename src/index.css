@@ -275,6 +275,150 @@
   color-scheme: dark;
 }
 
+/* ===== 主題D: 石墨 / 纸白 / 深青 (工具集) ===== */
+[data-theme="tools"] {
+  --sumi-50: 245 244 239;
+  --sumi-100: 224 225 219;
+  --sumi-200: 184 188 181;
+  --sumi-300: 135 143 137;
+  --sumi-400: 91 103 98;
+  --sumi-500: 61 74 72;
+  --sumi-600: 39 53 54;
+  --sumi-700: 27 40 43;
+  --sumi-800: 19 30 34;
+  --sumi-900: 13 23 27;
+  --sumi-950: 8 16 20;
+
+  --washi-50: 249 248 242;
+  --washi-100: 232 231 220;
+  --washi-200: 198 199 187;
+  --washi-300: 157 161 151;
+
+  --aka-50: 255 241 207;
+  --aka-100: 243 211 139;
+  --aka-200: 219 169 77;
+  --aka-300: 188 132 45;
+  --aka-400: 157 103 31;
+  --aka-500: 125 78 25;
+  --aka-600: 98 58 24;
+  --aka-700: 70 41 22;
+  --aka-800: 47 28 21;
+  --aka-900: 29 18 17;
+
+  --kin-50: 229 245 239;
+  --kin-100: 188 221 211;
+  --kin-200: 132 187 174;
+  --kin-300: 82 151 139;
+  --kin-400: 47 119 111;
+  --kin-500: 32 92 89;
+  --kin-600: 24 70 71;
+  --kin-700: 18 52 56;
+  --kin-800: 12 37 43;
+  --kin-900: 8 25 31;
+
+  --sumiure-500: 66 80 79;
+  --sumiure-600: 45 61 63;
+  --sumiure-700: 30 46 50;
+  --card-bg: linear-gradient(145deg, rgb(30 46 49 / 0.97), rgb(15 27 31 / 0.99));
+  --card-border: rgb(var(--kin-400) / 0.3);
+  --glass-bg: rgb(var(--sumi-950) / 0.84);
+  --glass-border: rgb(var(--kin-400) / 0.24);
+  --stamp-bg: linear-gradient(180deg, rgb(var(--aka-300)), rgb(var(--aka-600)));
+  --stamp-border: rgb(var(--aka-300));
+  --stamp-text: 255 247 222;
+  --kinpaku-grad: linear-gradient(135deg, rgb(var(--washi-100)), rgb(var(--kin-300)) 55%, rgb(var(--aka-200)));
+  --bg-page: radial-gradient(120% 80% at 50% 0%, rgb(var(--sumi-700)) 0%, rgb(var(--sumi-900)) 72%, rgb(var(--sumi-950)) 100%);
+  --glow-a: rgb(var(--aka-400) / 0.18);
+  --glow-b: rgb(var(--kin-400) / 0.2);
+  --glow-c: rgb(var(--aka-200) / 0.1);
+  --moon-grad: radial-gradient(circle, rgb(var(--kin-300) / 0.18), transparent 70%);
+  --wave-grad-stop0: rgb(var(--kin-400) / 0);
+  --wave-grad-stop55: rgb(var(--kin-400) / 0.2);
+  --wave-grad-stop100: rgb(var(--sumi-950));
+  --wave-stroke: rgb(var(--kin-400) / 0.18);
+  --noise-matrix: "0 0 0 0 0.4  0 0 0 0 0.5  0 0 0 0 0.42  0 0 0 0 0.35";
+  --skeleton-1: rgb(var(--sumi-600) / 0.85);
+  --skeleton-2: rgb(var(--kin-500) / 0.35);
+  --petal-hue: 175 30;
+  --petal-hue2: 38 42;
+  --particle-colors: "#52978b,#dba94d,#bc842d,#c6c7bb,#2f776f,#f5f4ef";
+  --click-colors: "#52978b,#dba94d,#9d671f,#c6c7bb,#2f776f,#f5f4ef";
+  --kiritori-grad: linear-gradient(180deg, transparent, rgb(var(--kin-400) / 0.4), rgb(var(--aka-300) / 0.4), transparent);
+  --seigaiha-a: rgb(var(--kin-400) / 0.16);
+  --seigaiha-b: rgb(var(--aka-300) / 0.12);
+  --corner-border: rgb(var(--kin-400) / 0.45);
+  --corner-shadow: rgb(var(--aka-400) / 0.4);
+  --kanji-stroke: rgb(var(--kin-400) / 0.06);
+  color-scheme: dark;
+}
+
+/* 工具集最终采用纯黑白灰档案风格 */
+[data-theme="tools"] {
+  --sumi-50: 245 245 243;
+  --sumi-100: 224 224 221;
+  --sumi-200: 184 184 180;
+  --sumi-300: 137 137 133;
+  --sumi-400: 96 96 93;
+  --sumi-500: 64 64 62;
+  --sumi-600: 42 42 41;
+  --sumi-700: 29 29 28;
+  --sumi-800: 20 20 19;
+  --sumi-900: 13 13 13;
+  --sumi-950: 7 7 7;
+  --washi-50: 252 252 250;
+  --washi-100: 235 235 232;
+  --washi-200: 202 202 198;
+  --washi-300: 165 165 160;
+  --aka-50: 248 248 246;
+  --aka-100: 224 224 220;
+  --aka-200: 190 190 185;
+  --aka-300: 155 155 150;
+  --aka-400: 124 124 119;
+  --aka-500: 96 96 92;
+  --aka-600: 70 70 67;
+  --aka-700: 49 49 47;
+  --aka-800: 31 31 30;
+  --aka-900: 18 18 18;
+  --kin-50: 248 248 246;
+  --kin-100: 222 222 219;
+  --kin-200: 187 187 183;
+  --kin-300: 148 148 144;
+  --kin-400: 112 112 108;
+  --kin-500: 82 82 79;
+  --kin-600: 59 59 57;
+  --kin-700: 41 41 40;
+  --kin-800: 27 27 26;
+  --kin-900: 15 15 15;
+  --sumiure-500: 72 72 69;
+  --sumiure-600: 51 51 49;
+  --sumiure-700: 35 35 34;
+  --card-bg: linear-gradient(145deg, rgb(38 38 37 / 0.97), rgb(14 14 14 / 0.99));
+  --card-border: rgb(var(--kin-300) / 0.26);
+  --glass-bg: rgb(var(--sumi-950) / 0.86);
+  --glass-border: rgb(var(--kin-400) / 0.2);
+  --stamp-bg: linear-gradient(180deg, rgb(var(--aka-500)), rgb(var(--aka-800)));
+  --stamp-border: rgb(var(--aka-300));
+  --stamp-text: 250 250 247;
+  --kinpaku-grad: linear-gradient(135deg, rgb(var(--washi-100)), rgb(var(--kin-300)) 55%, rgb(var(--aka-200)));
+  --bg-page: radial-gradient(120% 80% at 50% 0%, rgb(var(--sumi-700)) 0%, rgb(var(--sumi-900)) 72%, rgb(var(--sumi-950)) 100%);
+  --glow-a: rgb(var(--aka-400) / 0.12);
+  --glow-b: rgb(var(--kin-400) / 0.14);
+  --glow-c: rgb(var(--washi-200) / 0.06);
+  --moon-grad: radial-gradient(circle, rgb(var(--washi-200) / 0.14), transparent 70%);
+  --wave-grad-stop0: rgb(var(--kin-400) / 0);
+  --wave-grad-stop55: rgb(var(--kin-400) / 0.16);
+  --wave-grad-stop100: rgb(var(--sumi-950));
+  --wave-stroke: rgb(var(--kin-400) / 0.16);
+  --particle-colors: "#f5f5f3,#c2c2be,#989894,#70706c,#4a4a47,#ffffff";
+  --click-colors: "#f5f5f3,#c2c2be,#989894,#70706c,#4a4a47,#ffffff";
+  --kiritori-grad: linear-gradient(180deg, transparent, rgb(var(--kin-400) / 0.32), rgb(var(--aka-300) / 0.32), transparent);
+  --seigaiha-a: rgb(var(--kin-400) / 0.14);
+  --seigaiha-b: rgb(var(--aka-300) / 0.1);
+  --corner-border: rgb(var(--kin-400) / 0.4);
+  --corner-shadow: rgb(var(--aka-400) / 0.3);
+  --kanji-stroke: rgb(var(--washi-100) / 0.05);
+}
+
 /* ===== 平滑切替アニメ ===== */
 * {
   box-sizing: border-box;
@@ -627,6 +771,26 @@ body::before {
     repeating-linear-gradient(45deg, transparent, transparent 6px, rgb(var(--kin-400) / 0.03) 6px, rgb(var(--kin-400) / 0.03) 7px),
     repeating-linear-gradient(-45deg, transparent, transparent 6px, rgb(var(--kin-400) / 0.03) 6px, rgb(var(--kin-400) / 0.03) 7px);
   background-size: 14px 14px;
+}
+
+/* 历史页只保留背景图，不叠加全局噪点纹理 */
+html[data-page="history"] body::before {
+  opacity: 0;
+}
+
+/* 工具集与成员簿专用的低对比背景纹理，不使用外部图片 */
+.bg-wagara-lines {
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 34px, rgb(var(--kin-400) / 0.045) 35px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 34px, rgb(var(--aka-400) / 0.025) 35px);
+}
+
+.bg-wagara-seigaiha {
+  background-image:
+    radial-gradient(circle at 12px 0, transparent 11px, rgb(var(--kin-400) / 0.07) 12px, transparent 13px),
+    radial-gradient(circle at 36px 0, transparent 11px, rgb(var(--aka-400) / 0.045) 12px, transparent 13px);
+  background-size: 48px 24px;
+  background-position: 0 12px, 24px 24px;
 }
 
 /* ============================================================

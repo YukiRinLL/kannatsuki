@@ -103,8 +103,8 @@ function getToolCount(node: ToolCategory): number {
   return (node.links?.length ?? 0) + (node.children?.reduce((sum, child) => sum + getToolCount(child), 0) ?? 0);
 }
 
-function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: number; forceOpen?: boolean }) {
-  const [open, setOpen] = useState(forceOpen ?? depth === 0);
+function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: number; forceOpen?: boolean | null }) {
+  const [open, setOpen] = useState(forceOpen ?? depth >= 2);
   const Icon = categoryIcons[depth % categoryIcons.length];
   const hasContent = Boolean(node.links?.length || node.children?.length);
 
@@ -187,21 +187,21 @@ function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: 
 }
 
 export default function Tools() {
-  const [expanded, setExpanded] = useState(false);
+  const [expandAll, setExpandAll] = useState<boolean | null>(null);
 
   return (
     <main className="pt-24 pb-20 min-h-screen">
       <section className="container mx-auto max-w-6xl px-4">
         <header className="text-center py-8 md:py-10">
-          <span className="kana-label tracking-[0.55em]">エオルゼア · しおり</span>
+          <span className="kana-label tracking-[0.55em]">アーカイブ · しおり</span>
           <h1 className="font-mincho text-3xl md:text-5xl tracking-[0.2em] text-kinpaku mt-3 pl-[0.2em]">
-            冒险者工具集
+            艾欧泽亚档案
           </h1>
           <div className="mizuhiki-line max-w-sm mx-auto mt-6">
             <span className="font-mincho text-xs tracking-[0.35em]">TOOLS & LINKS</span>
           </div>
           <p className="font-mincho text-xs text-sumi-200/60 leading-[1.9] max-w-2xl mx-auto mt-5">
-            将散落在艾欧泽亚各处的资料与工具，收进一册随身可取的旅途手记。
+            将散落在艾欧泽亚各处的资料与工具，收进一册可检索的旅途档案。
             <br />
             选择一个方向，开始下一段探索。
           </p>
@@ -214,14 +214,14 @@ export default function Tools() {
           <button
             type="button"
             className="text-[11px] tracking-[0.12em] text-kin-300 hover:text-kin-200 transition-colors"
-            onClick={() => setExpanded(!expanded)}
+            onClick={() => setExpandAll(expandAll === true ? false : true)}
           >
-            {expanded ? "折叠全部" : "展开全部"}
+            {expandAll === true ? "折叠全部" : "展开全部"}
           </button>
         </div>
         <div className="grid gap-2 max-w-5xl mx-auto">
           {toolCategories.map((category) => (
-            <ToolTree key={`${category.title}-${expanded}`} node={category} forceOpen={expanded} />
+            <ToolTree key={`${category.title}-${String(expandAll)}`} node={category} forceOpen={expandAll} />
           ))}
         </div>
 

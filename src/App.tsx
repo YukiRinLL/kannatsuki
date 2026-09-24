@@ -24,12 +24,15 @@ function AppContent() {
   const setTheme = useTheme((s) => s.set);
 
   useEffect(() => {
-    const theme = location.pathname === "/history" || location.pathname === "/tools"
+    const theme = location.pathname === "/history"
       ? "blue"
+      : location.pathname === "/tools"
+      ? "tools"
       : location.pathname === "/members"
       ? "japan"
       : "red";
     setTheme(theme);
+    document.documentElement.setAttribute("data-page", location.pathname === "/history" ? "history" : "decorated");
   }, [location.pathname, setTheme]);
 
   return (

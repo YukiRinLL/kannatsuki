@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ThemeName = "red" | "blue" | "japan";
+export type ThemeName = "red" | "blue" | "japan" | "tools";
 
 interface ThemeState {
   theme: ThemeName;
