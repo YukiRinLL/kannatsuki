@@ -15,7 +15,7 @@ export default function Footer() {
                 神無月 · 终焉
               </div>
               <div className="kana-label tracking-[0.3em]">
-                KANNAZUKI · FINALE
+                KANNAZUKI · SHUUEN
               </div>
             </div>
 

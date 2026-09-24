@@ -93,7 +93,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.4 }}
           className="mt-10 kana-label text-[0.8rem]"
         >
-          神無月 · KANNAZUKI
+          かんなづき · KANNAZUKI
         </motion.div>
 
         {/* タイトル — 神無月 */}
@@ -115,7 +115,7 @@ export default function Hero() {
         >
           <span className="w-10 h-px bg-aka-500/50" />
           <p className="font-mincho text-sm md:text-[15px] tracking-[0.3em] text-washi-100/80">
-            自由部队 · 跨世界联络贝尔
+            フリーカンパニー ・ クロスワールドリンクシェル
           </p>
           <span className="w-10 h-px bg-kin-400/50" />
         </motion.div>

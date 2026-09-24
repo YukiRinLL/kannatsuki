@@ -32,7 +32,7 @@ export default function AboutFC() {
         >
           <span className="kana-label tracking-[0.35em]">OUR VALUES</span>
           <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5">
-            三つの理念
+            运营风格
           </h2>
           <div className="mizuhiki-line max-w-sm mx-auto">
             <span className="font-mincho text-xs tracking-[0.4em]">ABOUT US</span>
