@@ -236,7 +236,7 @@ const legacyCategories: ToolCategory[] = [
   {
     title: "市场与其他工具",
     subtitle: "Market & Utilities",
-    description: "市场、蓝魔法、无人岛、天气、战术板、模型查看与开发接口。",
+    description: "市场、青魔法、无人岛、天气、战术板、模型查看与开发接口。",
     links: [
       { name: "Universalis", description: "跨服务器市场价格", url: "https://universalis.app/" },
       { name: "亚历山德里亚经济系统", description: "市场价格参考", url: "https://www.ffxiv.ws/" },
@@ -282,7 +282,7 @@ export const toolCategories: ToolCategory[] = [
   {
     title: "官方站点",
     subtitle: "Official Links",
-    description: "原工具页中的官方入口，按国际服务器与中国服务器分组。",
+    description: "",
     children: [
       {
         title: "国际服务器",
@@ -394,7 +394,7 @@ export const toolCategories: ToolCategory[] = [
               {
                 title: "其他",
                 subtitle: "Else",
-                description: "蓝魔法、无人岛、天气、战术板、模型查看与开发接口等工具。",
+                description: "青魔法、无人岛、天气、战术板、模型查看与开发接口等工具。",
                 links: category.links?.slice(5) ?? [],
               },
             ],

@@ -217,11 +217,6 @@ export default function Tools() {
           <div className="mizuhiki-line max-w-sm mx-auto mt-6">
             <span className="font-mincho text-xs tracking-[0.35em]">TOOLS & LINKS</span>
           </div>
-          <p className="font-mincho text-xs text-sumi-200/60 leading-[1.9] max-w-2xl mx-auto mt-5">
-            将散落在艾欧泽亚各处的资料与工具，收进一册可检索的旅途档案。
-            <br />
-            选择一个方向，开始下一段探索。
-          </p>
         </motion.header>
 
         <div className="flex items-center justify-between max-w-5xl mx-auto mb-3 px-1">
