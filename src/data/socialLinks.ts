@@ -3,6 +3,7 @@ import type { ThemeName } from "@/hooks/useTheme";
 export interface SocialLink {
   name: string;
   url: string;
+  detail: string;
   icon: string;
   color: string;
   hoverColor: string;
@@ -10,21 +11,16 @@ export interface SocialLink {
 
 const casualSocialLinks: SocialLink[] = [
   {
-    name: "Lodestone",
-    url: "",
-    icon: "scroll",
-    color: "#6592e6",
-    hoverColor: "#7ca1e9",
-  },
-  {
-    name: "Discord",
-    url: "",
+    name: "Group Chat",
+    detail: "QQ: 2154059817",
+    url: "https://jq.qq.com/?_wv=1027&k=FSun33H0",
     icon: "message-circle",
-    color: "#5865F2",
-    hoverColor: "#7a83f3",
+    color: "#12b7f5",
+    hoverColor: "#55c9f5",
   },
   {
     name: "GitHub",
+    detail: "github.com/YukiRinLL/kannatsuki",
     url: "https://github.com/YukiRinLL/kannatsuki",
     icon: "github",
     color: "#a0a0b8",
@@ -34,22 +30,17 @@ const casualSocialLinks: SocialLink[] = [
 
 const hardcoreSocialLinks: SocialLink[] = [
   {
-    name: "Lodestone",
-    url: "",
-    icon: "scroll",
-    color: "#c72422",
-    hoverColor: "#e68c86",
-  },
-  {
-    name: "Discord",
-    url: "",
+    name: "Group Chat",
+    detail: "QQ: 2154059817",
+    url: "https://jq.qq.com/?_wv=1027&k=FSun33H0",
     icon: "message-circle",
     color: "#d8ad43",
     hoverColor: "#ecd99e",
   },
   {
-    name: "Raiding Hub",
-    url: "",
+    name: "GitHub",
+    detail: "github.com/YukiRinLL/kannatsuki",
+    url: "https://github.com/YukiRinLL/kannatsuki",
     icon: "github",
     color: "#b01a1d",
     hoverColor: "#d64f49",

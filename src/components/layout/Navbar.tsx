@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, MessageCircle } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { getLogo, getLogoFallback } from "@/lib/themeAssets";
 
@@ -99,18 +99,33 @@ export default function Navbar() {
           {/* 区切りの縦棒 */}
           <span className="kiritori-v h-10" />
 
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 px-5 py-2 border border-kin-400/40 hover:border-aka-400/70 transition-all duration-300"
-            style={{ borderRadius: "2px" }}
-          >
-            <span className="w-1.5 h-1.5 bg-aka-500 rotate-45 group-hover:scale-125 transition-transform" />
-            <span className="font-mincho text-[14px] tracking-[0.2em] text-washi-100 group-hover:text-aka-300 transition-colors">
-              Lodestone
-            </span>
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://jq.qq.com/?_wv=1027&k=FSun33H0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-2.5 py-2 border border-kin-400/25 hover:border-kin-300/60 transition-colors"
+              title="Group Chat · QQ: 2154059817"
+            >
+              <MessageCircle size={14} strokeWidth={1.5} className="text-kin-300" />
+              <span className="hidden lg:inline text-[11px] tracking-[0.08em] text-washi-100 group-hover:text-kin-200">
+                Group Chat
+              </span>
+            </a>
+            <a
+              href="https://github.com/YukiRinLL/kannatsuki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-2.5 py-2 border border-kin-400/25 hover:border-kin-300/60 transition-colors"
+              title="GitHub · github.com/YukiRinLL/kannatsuki"
+            >
+              <Github size={14} strokeWidth={1.5} className="text-kin-300" />
+              <span className="hidden lg:inline text-[11px] tracking-[0.08em] text-washi-100 group-hover:text-kin-200">
+                GitHub
+              </span>
+            </a>
+          </div>
+
         </div>
 
         {/* モバイルトグル */}
@@ -155,14 +170,28 @@ export default function Navbar() {
 
           <span className="kiritori-v h-px w-full" style={{ height: "1px" }} />
 
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mincho tracking-[0.2em] text-aka-300"
-          >
-            → Lodestone
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://jq.qq.com/?_wv=1027&k=FSun33H0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[13px] tracking-[0.1em] text-washi-100 hover:text-kin-200"
+              title="QQ: 2154059817"
+            >
+              <MessageCircle size={15} strokeWidth={1.5} />
+              Group Chat
+            </a>
+            <a
+              href="https://github.com/YukiRinLL/kannatsuki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[13px] tracking-[0.1em] text-washi-100 hover:text-kin-200"
+            >
+              <Github size={15} strokeWidth={1.5} />
+              GitHub
+            </a>
+          </div>
+
         </div>
       )}
     </nav>
