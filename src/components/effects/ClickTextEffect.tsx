@@ -11,7 +11,7 @@ export default function ClickTextEffect() {
   const wordIndexRef = useRef(0);
 
   useEffect(() => {
-    const words = getClickWords(theme);
+    const words = getClickWords("blue");
 
     const handleClick = (e: MouseEvent) => {
       const word = words[wordIndexRef.current % words.length];

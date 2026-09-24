@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ReactNode> = {
  */
 export default function AboutFC() {
   const theme = useTheme((s) => s.theme);
-  const cards = getAboutCards(theme);
+  const cards = getAboutCards("blue");
 
   return (
     <section id="about" className="relative py-28 px-4 wagara-kikko">

@@ -73,7 +73,7 @@ export default function FCCard() {
   const theme = useTheme((s) => s.theme);
   const { data, loading, error, retry } = useGuildInfo();
 
-  const fallbackInfo = getGuildInfo(theme);
+  const fallbackInfo = getGuildInfo("blue");
   const displayInfo: GuildInfo = data || fallbackInfo;
 
   const guildPicSrc = getProxiedGuildPic(displayInfo.guild_pic);

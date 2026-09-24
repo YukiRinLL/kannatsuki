@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ReactNode> = {
  */
 export default function SocialLinks() {
   const theme = useTheme((s) => s.theme);
-  const links = getSocialLinks(theme);
+  const links = getSocialLinks("blue");
 
   return (
     <section id="social" className="relative py-28 px-4 wagara-seigaiha">
