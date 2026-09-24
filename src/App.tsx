@@ -8,6 +8,7 @@ import TitleAnimation from "@/components/effects/TitleAnimation";
 import Home from "@/pages/Home";
 import History from "@/pages/History";
 import Members from "@/pages/Members";
+import Tools from "@/pages/Tools";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function App() {
@@ -23,7 +24,7 @@ function AppContent() {
   const setTheme = useTheme((s) => s.set);
 
   useEffect(() => {
-    const theme = location.pathname === "/history"
+    const theme = location.pathname === "/history" || location.pathname === "/tools"
       ? "blue"
       : location.pathname === "/members"
       ? "japan"
@@ -41,6 +42,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/history" element={<History />} />
         <Route path="/members" element={<Members />} />
+        <Route path="/tools" element={<Tools />} />
       </Routes>
       <Footer />
     </>
