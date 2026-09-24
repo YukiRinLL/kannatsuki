@@ -11,6 +11,7 @@ import { imageSources } from "./imageSources";
 const LOGO_FILES = {
   red: "frame-1-121x121-B.png",
   blue: "kannatsuki ele.png",
+  japan: "kannatsuki logo.png",
 } as const;
 
 export function getLogo(theme: ThemeName) {

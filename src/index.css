@@ -198,6 +198,83 @@
   color-scheme: light;
 }
 
+/* ===== 主題C: 藍墨 / 生成り / 古銅 (成员名簿) ===== */
+[data-theme="japan"] {
+  --sumi-50: 242 238 226;
+  --sumi-100: 226 221 207;
+  --sumi-200: 190 188 180;
+  --sumi-300: 142 145 143;
+  --sumi-400: 101 108 112;
+  --sumi-500: 67 78 86;
+  --sumi-600: 40 54 67;
+  --sumi-700: 27 42 57;
+  --sumi-800: 18 31 46;
+  --sumi-900: 12 23 36;
+  --sumi-950: 7 15 25;
+
+  --washi-50: 250 247 237;
+  --washi-100: 235 232 220;
+  --washi-200: 203 200 189;
+  --washi-300: 166 165 158;
+
+  --aka-50: 247 232 208;
+  --aka-100: 225 194 151;
+  --aka-200: 194 148 91;
+  --aka-300: 165 111 61;
+  --aka-400: 139 87 48;
+  --aka-500: 113 68 42;
+  --aka-600: 88 51 37;
+  --aka-700: 65 37 31;
+  --aka-800: 44 25 25;
+  --aka-900: 28 16 20;
+
+  --kin-50: 241 239 228;
+  --kin-100: 218 218 207;
+  --kin-200: 181 187 184;
+  --kin-300: 139 153 157;
+  --kin-400: 101 122 132;
+  --kin-500: 72 96 110;
+  --kin-600: 51 75 91;
+  --kin-700: 35 57 74;
+  --kin-800: 24 42 59;
+  --kin-900: 15 29 44;
+
+  --sumiure-500: 74 82 87;
+  --sumiure-600: 53 65 75;
+  --sumiure-700: 36 50 63;
+  --card-bg: linear-gradient(145deg, rgb(27 43 57 / 0.98), rgb(12 24 38 / 0.99));
+  --card-border: rgb(var(--aka-200) / 0.28);
+  --glass-bg: rgb(var(--sumi-900) / 0.78);
+  --glass-border: rgb(var(--aka-200) / 0.2);
+  --stamp-bg: linear-gradient(180deg, rgb(var(--aka-400)), rgb(var(--aka-700)));
+  --stamp-border: rgb(var(--aka-300));
+  --stamp-text: 255 244 226;
+  --kinpaku-grad: linear-gradient(135deg, rgb(var(--washi-100)), rgb(var(--kin-300)) 48%, rgb(var(--aka-200)) 100%);
+  --bg-page: radial-gradient(120% 70% at 50% 0%, rgb(var(--sumi-700)) 0%, rgb(var(--sumi-900)) 75%);
+  --glow-a: rgb(var(--aka-400) / 0.22);
+  --glow-b: rgb(var(--kin-400) / 0.2);
+  --glow-c: rgb(var(--aka-200) / 0.12);
+  --moon-grad: radial-gradient(circle, rgb(var(--aka-200) / 0.22), transparent 70%);
+  --wave-grad-stop0: rgb(var(--aka-200) / 0);
+  --wave-grad-stop55: rgb(var(--aka-300) / 0.25);
+  --wave-grad-stop100: rgb(var(--sumi-950));
+  --wave-stroke: rgb(var(--aka-200) / 0.2);
+  --noise-matrix: "0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0 0.5";
+  --skeleton-1: rgb(var(--sumi-600) / 0.85);
+  --skeleton-2: rgb(var(--kin-500) / 0.4);
+  --petal-hue: 32 45;
+  --petal-hue2: 205 25;
+  --particle-colors: "#8b9da5,#c2945b,#a56f3d,#d9d8cf,#65808e,#faf7ed";
+  --click-colors: "#8b9da5,#c2945b,#8b5730,#d9d8cf,#65808e,#faf7ed";
+  --kiritori-grad: linear-gradient(180deg, transparent, rgb(var(--kin-400) / 0.35), rgb(var(--aka-300) / 0.45), transparent);
+  --seigaiha-a: rgb(var(--kin-400) / 0.18);
+  --seigaiha-b: rgb(var(--aka-300) / 0.15);
+  --corner-border: rgb(var(--aka-200) / 0.5);
+  --corner-shadow: rgb(var(--aka-500) / 0.45);
+  --kanji-stroke: rgb(var(--kin-300) / 0.08);
+  color-scheme: dark;
+}
+
 /* ===== 平滑切替アニメ ===== */
 * {
   box-sizing: border-box;

@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="tategaki-deco text-2xl text-kin-400/75">
           {isRed ? (
             <>
-              極限の道は<br />终焉の先に。<br />—— 神無月
+              旅の続きは<br />月明かりの下で。<br />—— 神無月
             </>
           ) : (
             <>
@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="tategaki-deco text-xl text-aka-300/65">
           {isRed ? (
             <>
-              刀の如く<br />研ぎ澄まし<br />勝利を掴む
+              花のように<br />咲き誇れ<br />冒険者よ
             </>
           ) : (
             <>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
 import { getLogo, getLogoFallback } from "@/lib/themeAssets";
 
@@ -99,9 +98,6 @@ export default function Navbar() {
           {/* 区切りの縦棒 */}
           <span className="kiritori-v h-10" />
 
-          {/* 主題切替 */}
-          <ThemeToggle />
-
           <a
             href=""
             target="_blank"
@@ -157,8 +153,6 @@ export default function Navbar() {
           })}
 
           <span className="kiritori-v h-px w-full" style={{ height: "1px" }} />
-
-          <ThemeToggle />
 
           <a
             href=""

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StarfieldBackground from "@/components/StarfieldBackground";
@@ -11,15 +11,28 @@ import Members from "@/pages/Members";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function App() {
-  const theme = useTheme((s) => s.theme);
-
-  // 初回マウント時に data-theme を確実に適用
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
   return (
     <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const setTheme = useTheme((s) => s.set);
+
+  useEffect(() => {
+    const theme = location.pathname === "/history"
+      ? "blue"
+      : location.pathname === "/members"
+      ? "japan"
+      : "red";
+    setTheme(theme);
+  }, [location.pathname, setTheme]);
+
+  return (
+    <>
       <StarfieldBackground />
       <ClickTextEffect />
       <TitleAnimation />
@@ -30,6 +43,6 @@ export default function App() {
         <Route path="/members" element={<Members />} />
       </Routes>
       <Footer />
-    </Router>
+    </>
   );
 }

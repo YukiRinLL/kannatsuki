@@ -14,6 +14,7 @@ import { imageSources } from "@/lib/imageSources";
 export default function StarfieldBackground() {
   const theme = useTheme((s) => s.theme);
   const isRed = theme === "red";
+  const isJapan = theme === "japan";
   const bgFile = isRed ? "RBY.png" : "BW.png";
   const [bgSrc, setBgSrc] = useState(imageSources[bgFile]?.cdn || `/images/${bgFile}`);
   const bgFallback = imageSources[bgFile]?.local || `/images/${bgFile}`;
@@ -63,6 +64,8 @@ export default function StarfieldBackground() {
         style={{
           background: isRed
             ? "linear-gradient(180deg, rgb(var(--sumi-950) / 0.78) 0%, rgb(var(--sumi-950) / 0.58) 25%, rgb(var(--sumi-950) / 0.62) 55%, rgb(var(--sumi-950) / 0.82) 100%)"
+            : isJapan
+            ? "linear-gradient(180deg, rgb(var(--sumi-900) / 0.68) 0%, rgb(var(--sumi-900) / 0.54) 35%, rgb(var(--sumi-900) / 0.72) 100%)"
             : "linear-gradient(180deg, rgb(255 255 255 / 0.82) 0%, rgb(255 255 255 / 0.70) 25%, rgb(255 255 255 / 0.72) 55%, rgb(255 255 255 / 0.88) 100%)",
         }}
       />

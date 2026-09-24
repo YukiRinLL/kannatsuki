@@ -1,11 +1,9 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
-export type ThemeName = "red" | "blue";
+export type ThemeName = "red" | "blue" | "japan";
 
 interface ThemeState {
   theme: ThemeName;
-  toggle: () => void;
   set: (t: ThemeName) => void;
 }
 
@@ -15,24 +13,11 @@ function applyTheme(theme: ThemeName) {
 }
 
 export const useTheme = create<ThemeState>()(
-  persist(
-    (set, get) => ({
-      theme: "blue",
-      toggle: () => {
-        const next = get().theme === "red" ? "blue" : "red";
-        applyTheme(next);
-        set({ theme: next });
-      },
-      set: (t) => {
-        applyTheme(t);
-        set({ theme: t });
-      },
-    }),
-    {
-      name: "kannatsuki-theme",
-      onRehydrateStorage: () => (state) => {
-        if (state) applyTheme(state.theme);
-      },
-    }
-  )
+  (set) => ({
+    theme: "red",
+    set: (t) => {
+      applyTheme(t);
+      set({ theme: t });
+    },
+  })
 );
