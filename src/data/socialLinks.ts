@@ -70,21 +70,21 @@ export interface AboutCard {
 const casualAboutCards: AboutCard[] = [
   {
     title: "共同运营",
-    subtitle: "みんなで運営する",
+    subtitle: "共同参与",
     description:
       "每个人都可以参与，无论你是新手还是老手！一起讨论玩法剧情与世界观，攻略副本，探索宝物，出海垂钓！",
     icon: "users",
   },
   {
     title: "一起 Happy",
-    subtitle: "楽しさを共有する",
+    subtitle: "分享乐趣",
     description:
       "在FC聊天频道问问「玩点什么」「有什么需要帮忙」随时组队出发！欢迎拍摄直播截屏投稿，自由记录艾欧泽亚的每一天。",
     icon: "heart",
   },
   {
     title: "平和友善 相互尊重",
-    subtitle: "強要しない",
+    subtitle: "相互尊重",
     description:
       "玩游戏开心第一！请保持独立性，互相尊重、换位思考，不将自己的想法强加于人。在彼此尊重中开心同乐，才是最好的。",
     icon: "shield",
@@ -94,21 +94,21 @@ const casualAboutCards: AboutCard[] = [
 const hardcoreAboutCards: AboutCard[] = [
   {
     title: "极限攻略",
-    subtitle: "限界への挑戦",
+    subtitle: "挑战极限",
     description:
       "追求最高规格的副本攻略！专注于攻克每一个副本。如果你渴望突破自我，这里是你的战场。",
     icon: "shield",
   },
   {
     title: "全面探索",
-    subtitle: "探求の道",
+    subtitle: "探索未知",
     description:
       "对于未知领域的探索永不止息！我们追求的是全领域全成就的收集，穷究一切知识、经验、技巧。",
     icon: "users",
   },
   {
     title: "极致卓越",
-    subtitle: "究極の境地",
+    subtitle: "追求卓越",
     description:
       "变强！没有不可能。如果你也渴望将FF14的玩法玩到极致，欢迎加入征途。",
     icon: "heart",

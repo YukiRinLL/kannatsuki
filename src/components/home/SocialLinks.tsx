@@ -28,17 +28,17 @@ export default function SocialLinks() {
           transition={{ duration: 0.9 }}
           className="text-center mb-16"
         >
-          <span className="kana-label tracking-[0.5em]">あいて した</span>
+          <span className="kana-label tracking-[0.35em]">CONTACT</span>
           <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5">
-            ご連絡先
+            联系方式
           </h2>
           <div className="mizuhiki-line max-w-sm mx-auto">
             <span className="font-mincho text-xs tracking-[0.4em]">CONTACT US</span>
           </div>
           <p className="font-gothic text-[14px] text-sumi-200/60 mt-6 max-w-lg mx-auto leading-[2]">
-            仲間のお声かけはいつでも歓迎いたします。
+            欢迎通过以下方式联系我们。
             <br />
-            お気軽に以下のリンクから遊びに来てください。
+            欢迎加入我们的社区。
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ export default function SocialLinks() {
                   {/* 小飾り矢印 */}
                   <div className="flex items-center gap-2 mt-auto pt-2">
                     <span className="kana-label opacity-70 tracking-[0.3em]">
-                      {theme === "red" ? "入隊" : "アクセス"}
+                      {theme === "red" ? "加入" : "访问"}
                     </span>
                     <ExternalLink
                       size={12}

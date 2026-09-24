@@ -15,7 +15,7 @@ export default function Footer() {
                 神無月 · 终焉
               </div>
               <div className="kana-label tracking-[0.3em]">
-                KANNAZUKI · SHUUEN
+                KANNAZUKI · FINALE
               </div>
             </div>
 
@@ -31,9 +31,9 @@ export default function Footer() {
             <p className="text-[11px] leading-7 text-sumi-200/70 font-gothic max-w-xl">
               Copyright © SQUARE ENIX CO., LTD. All Rights Reserved.
               <br />
-              © Crystal Alliance cir. · 神無月 〈终焉〉 FCホームページ
+               © Crystal Alliance cir. · 神無月 〈终焉〉 FC网站
               <br />
-              当サイトは非公式のファンサイトであり、スクウェア・エニックス様とは一切関係ありません。
+               本站为非官方粉丝网站，与 SQUARE ENIX CO., LTD. 没有任何关系。
             </p>
           </div>
         </div>

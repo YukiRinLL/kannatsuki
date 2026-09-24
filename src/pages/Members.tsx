@@ -32,7 +32,7 @@ export default function Members() {
             transition={{ duration: 0.9 }}
             className="text-center mb-14"
           >
-            <span className="kana-label tracking-[0.5em]">なかま · めいぼ</span>
+            <span className="kana-label tracking-[0.35em]">MEMBER LIST</span>
             <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5 pl-[0.25em]">
               成员名簿
             </h2>
@@ -51,7 +51,7 @@ export default function Members() {
                 <div className="font-yu text-2xl text-kinpaku">
                   {loading ? "—" : total}
                 </div>
-                <div className="kana-label tracking-[0.3em] opacity-60 mt-1">総勢</div>
+                <div className="kana-label tracking-[0.3em] opacity-60 mt-1">总人数</div>
               </div>
             </div>
           </motion.div>
@@ -61,7 +61,7 @@ export default function Members() {
             <div className="flex flex-col items-center justify-center py-24 gap-4">
               <Loader2 size={36} className="animate-spin text-kin-400" strokeWidth={1.5} />
               <p className="font-mincho text-[13px] tracking-[0.3em] text-sumi-200/70">
-                読み込み中…
+                正在加载…
               </p>
             </div>
           ) : sorted.length > 0 ? (
@@ -81,7 +81,7 @@ export default function Members() {
                   className="mt-5 inline-flex items-center gap-2 text-[12.5px] font-mincho tracking-[0.2em] text-aka-300 hover:text-aka-200 transition-colors"
                 >
                   <RefreshCw size={14} />
-                  データ更新を再試行 / 点击重试
+                  点击重试
                 </button>
               )}
             </div>
@@ -95,7 +95,7 @@ export default function Members() {
                 className="inline-flex items-center gap-2 text-[12px] font-mincho tracking-[0.2em] text-sumi-200/50 hover:text-aka-300 transition-colors"
               >
                 <RefreshCw size={12} />
-                データを再取得
+                重新获取数据
               </button>
             </div>
           )}

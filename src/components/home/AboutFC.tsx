@@ -30,7 +30,7 @@ export default function AboutFC() {
           transition={{ duration: 0.9 }}
           className="text-center mb-16 relative"
         >
-          <span className="kana-label tracking-[0.5em]">みっつの おもい</span>
+          <span className="kana-label tracking-[0.35em]">OUR VALUES</span>
           <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5">
             三つの理念
           </h2>

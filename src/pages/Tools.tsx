@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { ExternalLink, ChevronDown, Compass, Search, Swords, Home as HomeIcon, Sparkles, ScrollText } from "lucide-react";
 import { toolCategories, type ToolCategory, type ToolLink } from "@/data/tools";
 
@@ -109,7 +110,7 @@ function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: 
   const hasContent = Boolean(node.links?.length || node.children?.length);
 
   return (
-    <section
+    <motion.section
       className={
         depth === 0
           ? "washi-card overflow-hidden border-2 border-kin-400/30"
@@ -117,6 +118,9 @@ function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: 
           ? "relative mt-4 ml-2 border-l-2 border-kin-400/35 pl-4 md:ml-4 md:pl-6"
           : "relative mt-2 ml-3 border-l border-aka-400/25 pl-3 md:ml-5 md:pl-5"
       }
+      initial={{ opacity: 0, y: depth === 0 ? 18 : 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: depth === 0 ? 0.55 : 0.35, delay: depth * 0.08, ease: "easeOut" }}
     >
       <button
         type="button"
@@ -182,7 +186,7 @@ function ToolTree({ node, depth = 0, forceOpen }: { node: ToolCategory; depth?: 
           )}
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 
@@ -190,12 +194,25 @@ export default function Tools() {
   const [expandAll, setExpandAll] = useState<boolean | null>(null);
 
   return (
-    <main className="pt-24 pb-20 min-h-screen">
+    <motion.main
+      className="pt-24 pb-20 min-h-screen"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.45, ease: "easeOut" } },
+      }}
+    >
       <section className="container mx-auto max-w-6xl px-4">
-        <header className="text-center py-8 md:py-10">
-          <span className="kana-label tracking-[0.55em]">アーカイブ · しおり</span>
+        <motion.header
+          className="text-center py-8 md:py-10"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.08, ease: "easeOut" }}
+        >
+          <span className="kana-label tracking-[0.35em]">常用链接与工具</span>
           <h1 className="font-mincho text-3xl md:text-5xl tracking-[0.2em] text-kinpaku mt-3 pl-[0.2em]">
-            艾欧泽亚档案
+            工具集
           </h1>
           <div className="mizuhiki-line max-w-sm mx-auto mt-6">
             <span className="font-mincho text-xs tracking-[0.35em]">TOOLS & LINKS</span>
@@ -205,7 +222,7 @@ export default function Tools() {
             <br />
             选择一个方向，开始下一段探索。
           </p>
-        </header>
+        </motion.header>
 
         <div className="flex items-center justify-between max-w-5xl mx-auto mb-3 px-1">
           <span className="text-[10px] tracking-[0.18em] text-sumi-200/45">
@@ -219,16 +236,21 @@ export default function Tools() {
             {expandAll === true ? "折叠全部" : "展开全部"}
           </button>
         </div>
-        <div className="grid gap-2 max-w-5xl mx-auto">
+        <motion.div
+          className="grid gap-2 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.32, ease: "easeOut" }}
+        >
           {toolCategories.map((category) => (
             <ToolTree key={`${category.title}-${String(expandAll)}`} node={category} forceOpen={expandAll} />
           ))}
-        </div>
+        </motion.div>
 
         <p className="text-center text-xs text-sumi-200/40 tracking-[0.12em] mt-10">
           外部链接由第三方维护，打开前请确认站点来源与使用环境。
         </p>
       </section>
-    </main>
+    </motion.main>
   );
 }

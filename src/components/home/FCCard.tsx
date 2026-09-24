@@ -91,7 +91,7 @@ export default function FCCard() {
     <>
       <InfoRow
         icon={<MapPin size={16} strokeWidth={1.5} />}
-        label="サーバー / 服务器"
+        label="服务器"
         value={`${info.area_name} · ${info.group_name}`}
         iconColor="rgb(var(--kin-400))"
       />
@@ -112,7 +112,7 @@ export default function FCCard() {
       />
       <InfoRow
         icon={<Users size={16} strokeWidth={1.5} />}
-        label="メンバー / 成员"
+        label="成员"
         value={`${info.active_member_num}  /  ${info.member_num}`}
       />
       <InfoRow
@@ -129,7 +129,7 @@ export default function FCCard() {
       />
       <InfoRow
         icon={<Home size={16} strokeWidth={1.5} />}
-        label="ハウス / 房屋"
+        label="房屋"
         value={info.house_public ? info.house_info : "非公開"}
         iconColor="rgb(var(--aka-500))"
       />
@@ -152,7 +152,7 @@ export default function FCCard() {
           transition={{ duration: 0.9 }}
           className="text-center mb-14"
         >
-          <span className="kana-label tracking-[0.5em]">ぶたい じょうほう</span>
+          <span className="kana-label tracking-[0.35em]">FC INFORMATION</span>
           <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5">
             FC 情報
           </h2>
@@ -257,7 +257,7 @@ export default function FCCard() {
                     className="mt-5 inline-flex items-center gap-2 text-[12.5px] font-mincho tracking-[0.2em] text-aka-300 hover:text-aka-200 transition-colors"
                   >
                     <RefreshCw size={14} />
-                    データ更新を再試行 / 点击重试
+                    点击重试
                   </button>
                 )}
               </div>
@@ -271,7 +271,7 @@ export default function FCCard() {
                   <div>
                     <div className="flex items-center gap-3 mb-3">
                       <Sparkles size={14} className="text-kin-400" strokeWidth={1.5} />
-                      <span className="kana-label tracking-[0.4em]">FC紹介 / 简介</span>
+                      <span className="kana-label tracking-[0.35em]">FC简介</span>
                       <span className="h-px flex-1 bg-gradient-to-r from-kin-400/30 to-transparent" />
                     </div>
                     <p className="font-mincho text-[14px] text-washi-100 leading-[2] pl-6">
@@ -285,7 +285,7 @@ export default function FCCard() {
                   <div>
                     <div className="flex items-center gap-3 mb-3">
                       <MessageSquare size={14} className="text-aka-400" strokeWidth={1.5} />
-                      <span className="kana-label tracking-[0.4em]">FC掲示板 / 公告</span>
+                      <span className="kana-label tracking-[0.35em]">FC公告</span>
                       <span className="h-px flex-1 bg-gradient-to-r from-aka-500/30 to-transparent" />
                     </div>
                     <div className="washi-sub-card pl-6 pr-4 py-3 font-gothic text-[13px] text-washi-100/90 leading-[2]">
@@ -298,7 +298,7 @@ export default function FCCard() {
                 {displayInfo.guild_label.length > 0 && (
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="kana-label tracking-[0.4em]">タグ / 标签</span>
+                      <span className="kana-label tracking-[0.35em]">标签</span>
                       <span className="h-px flex-1 bg-gradient-to-r from-aka-500/30 to-transparent" />
                     </div>
                     <div className="flex flex-wrap gap-2 justify-start">

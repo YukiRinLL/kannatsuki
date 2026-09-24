@@ -23,7 +23,7 @@ export default function Timeline() {
           transition={{ duration: 0.9 }}
           className="text-center mb-20"
         >
-          <span className="kana-label tracking-[0.5em]">あゆみ · れきし</span>
+          <span className="kana-label tracking-[0.35em]">FC ARCHIVE</span>
           <h2 className="font-mincho text-4xl md:text-5xl tracking-[0.25em] text-kinpaku mt-3 mb-5">
             FC 歴史
           </h2>
@@ -32,12 +32,12 @@ export default function Timeline() {
           </div>
           <p className="font-mincho text-[14px] text-sumi-200/70 mt-7 leading-[2.2] max-w-xl mx-auto">
             {isRed
-              ? "この精鋭部隊には、極限を求め続けた幾多の戦いの軌跡があります。"
-              : "この自由部隊には、短いながらも幾筋かの輝く歴史があります。"}
+              ? "这里记录着我们不断挑战极限、走过的每一段路。"
+              : "这里记录着 FC 从成立至今的重要时刻。"}
             <br />
             {isRed
-              ? "挑戦と挫折の物語、そして勝利の記憶をご覧ください。"
-              : "冒険者達と共に刻んだ、大切なあゆみをどうぞご覧ください。"}
+              ? "请查看挑战、挫折与胜利留下的足迹。"
+              : "请查看我们与伙伴们共同走过的历程。"}
           </p>
         </motion.div>
 
@@ -134,8 +134,8 @@ export default function Timeline() {
               <span className="w-2 h-2 rounded-full bg-aka-500 animate-pulse" />
               <span className="font-mincho text-sm tracking-[0.3em] text-kin-300">
                 {isRed
-                  ? "現在 · 攻略は続く"
-                  : "現在 · これからも続きます"}
+                  ? "当前 · 挑战仍在继续"
+                  : "当前 · 故事仍在继续"}
               </span>
             </div>
           </div>

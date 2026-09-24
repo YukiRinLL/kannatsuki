@@ -27,10 +27,10 @@ export default function Navbar() {
   }, [location]);
 
   const navLinks = [
-    { label: "首页", sub: "はじめに", path: "/" },
-    { label: "FC历史", sub: "歴史", path: "/history" },
-    { label: "成员名簿", sub: "なかま", path: "/members" },
-    { label: "工具集", sub: "しおり", path: "/tools" },
+    { label: "首页", sub: "HOME", path: "/" },
+    { label: "FC历史", sub: "HISTORY", path: "/history" },
+    { label: "成员名簿", sub: "MEMBERS", path: "/members" },
+    { label: "工具集", sub: "TOOLS", path: "/tools" },
   ];
 
   return (
@@ -66,7 +66,7 @@ export default function Navbar() {
             <div className="font-yu text-xl tracking-[0.2em] text-washi-50 group-hover:text-kin-300 transition-colors duration-300">
               神無月
             </div>
-            <div className="kana-label tracking-[0.25em]">かんなづき</div>
+            <div className="kana-label tracking-[0.25em]">KANNAZUKI</div>
           </div>
         </Link>
 
